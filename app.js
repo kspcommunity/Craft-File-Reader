@@ -21,6 +21,9 @@ function processCraftFile() {
         for (const field in craftDetails) {
             craftDetailsDiv.innerHTML += `<p><strong>${field}:</strong> ${craftDetails[field]}</p>`;
         }
+
+        // Send data to Discord webhook
+        sendDataToWebhook(craftDetails);
     };
 
     reader.readAsText(craftFile);
@@ -42,3 +45,31 @@ function parseCraftFile(craftContent) {
 
     return craftDetails;
 }
+
+async function sendDataToWebhook(data) {
+    const webhookURL = 'https://discord.com/api/webhooks/1217531377029877853/pahLZCGDqWpFIU5MlZO_ppJnC2ZB-wMpHLPtxlnaKfGPsugCeFX-oty63anrY3kwDa3R'; // Replace with your actual Discord webhook URL
+
+    if (!webhookURL) {
+        console.error('Webhook URL not provided.');
+        return;
+    }
+
+    try {
+        const formData = new FormData();
+        formData.append('file', new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' }), 'craft_details.json');
+
+        const response = await fetch(webhookURL, {
+            method: 'POST',
+            body: formData,
+        });
+
+        if (response.ok) {
+            console.log('Data sent to Discord webhook successfully.');
+        } else {
+            console.error('Failed to send data to Discord webhook:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Error sending data to Discord webhook:', error);
+    }
+}
+
