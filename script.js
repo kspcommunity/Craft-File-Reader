@@ -27,7 +27,8 @@ function getCraftInfo(data) {
         size: '',
         height: '',
         width: '',
-        length: ''
+        length: '',
+        parts: {}
     };
 
     for (var i = 0; i < lines.length; i++) {
@@ -46,6 +47,23 @@ function getCraftInfo(data) {
             craftInfo.height = parseFloat(dimensions[0]).toFixed(2);
             craftInfo.width = parseFloat(dimensions[1]).toFixed(2);
             craftInfo.length = parseFloat(dimensions[2]).toFixed(2);
+        } else if (line.startsWith('PART')) {
+            var partName = '';
+            for (var j = i + 1; j < lines.length; j++) {
+                var partLine = lines[j].trim();
+                if (partLine.startsWith('part =')) {
+                    partName = partLine.split('=')[1].trim();
+                } else if (partLine.startsWith('}')) {
+                    if (partName !== '') {
+                        if (craftInfo.parts.hasOwnProperty(partName)) {
+                            craftInfo.parts[partName]++;
+                        } else {
+                            craftInfo.parts[partName] = 1;
+                        }
+                    }
+                    break;
+                }
+            }
         }
     }
 
@@ -61,6 +79,18 @@ function displayCraftInfo(info) {
         <strong>Version:</strong> ${info.version}<br>
         <strong>Height:</strong> ${info.height} m<br>
         <strong>Width:</strong> ${info.width} m<br>
-        <strong>Length:</strong> ${info.length} m<br>
+        <strong>Length:</strong> ${info.length} m<br><br>
+        <table>
+            <tr>
+                <th>Part Name</th>
+                <th>Quantity</th>
+            </tr>
+            ${Object.entries(info.parts).map(([partName, quantity]) => `
+                <tr>
+                    <td>${partName}</td>
+                    <td>${quantity}</td>
+                </tr>
+            `).join('')}
+        </table>
     `;
 }
