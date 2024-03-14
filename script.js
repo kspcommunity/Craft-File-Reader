@@ -52,7 +52,7 @@ function getCraftInfo(data) {
             for (var j = i + 1; j < lines.length; j++) {
                 var partLine = lines[j].trim();
                 if (partLine.startsWith('part =')) {
-                    partName = partLine.split('=')[1].trim();
+                    partName = partLine.split('=')[1].trim().split('_')[0]; // Extract base name
                 } else if (partLine.startsWith('}')) {
                     if (partName !== '') {
                         if (craftInfo.parts.hasOwnProperty(partName)) {
@@ -72,6 +72,7 @@ function getCraftInfo(data) {
 
 function displayCraftInfo(info) {
     var outputDiv = document.getElementById('output');
+    var totalParts = Object.values(info.parts).reduce((acc, val) => acc + val, 0); // Calculate total part count
     outputDiv.innerHTML = `
         <strong>Name:</strong> ${info.name}<br>
         <strong>Description:</strong> ${info.description}<br>
@@ -80,6 +81,7 @@ function displayCraftInfo(info) {
         <strong>Height:</strong> ${info.height} m<br>
         <strong>Width:</strong> ${info.width} m<br>
         <strong>Length:</strong> ${info.length} m<br><br>
+        <strong>Total Part Count:</strong> ${totalParts}<br><br>
         <table>
             <tr>
                 <th>Part Name</th>
