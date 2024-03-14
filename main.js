@@ -56,7 +56,8 @@ async function findPartInMods(partName, gamedataPath) {
     });
 
     const partPaths = await Promise.all(promises);
-    return partPaths.find(partPath => partPath !== null);
+    const foundPartPath = partPaths.find(partPath => partPath !== null);
+    return foundPartPath !== undefined ? foundPartPath : `Part '${partName}' not found in any mod.`;
 }
 
 // Function to search for a part in a directory (with nested subfolders)
