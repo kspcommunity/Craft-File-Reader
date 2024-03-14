@@ -1,0 +1,120 @@
+Part: Mark1Cockpit_4294811528
+Instance 1:
+
+Part: linearRcs_4294811464
+Instance 1:
+
+Part: linearRcs_4294811426
+Instance 1:
+
+Part: SmallGearBay_4294811388
+Instance 1:
+
+Part: advSasModule_4294811210
+Instance 1:
+
+Part: dockingPortLateral_4294811182
+Instance 1:
+
+Part: RCSFuelTank_4294811106
+Instance 1:
+
+Part: R8winglet_4294809932
+Instance 1:
+
+Part: R8winglet_4294809894
+Instance 1:
+
+Part: batteryBank_4293934584
+Instance 1:
+
+Part: fuelTank.long_4294811080
+Instance 1:
+
+Part: fuelTank_4294810884
+Instance 1:
+
+Part: turboFanEngine_4294810852
+Instance 1:
+
+Part: SmallGearBay_4294810618
+Instance 1:
+
+Part: deltaWing_4294809682
+Instance 1:
+
+Part: linearRcs_4294809610
+Instance 1:
+
+Part: RCSBlock_4294809534
+Instance 1:
+
+Part: StandardCtrlSrf_4294809466
+Instance 1:
+
+Part: elevon2_4294809406
+Instance 1:
+
+Part: fuelLine_4294267148
+Instance 1:
+
+Part: shockConeIntake_4294445008
+Instance 1:
+
+Part: fuelTank_4294810408
+Instance 1:
+
+Part: turboFanEngine_4294810376
+Instance 1:
+
+Part: SmallGearBay_4294810142
+Instance 1:
+
+Part: deltaWing_4294805548
+Instance 1:
+
+Part: linearRcs_4294805510
+Instance 1:
+
+Part: RCSBlock_4294805458
+Instance 1:
+
+Part: StandardCtrlSrf_4294805376
+Instance 1:
+
+Part: elevon2_4294805342
+Instance 1:
+
+Part: fuelLine_4294810222
+Instance 1:
+
+Part: shockConeIntake_4294444846
+Instance 1:
+
+Part: structuralWing_4294809824
+Instance 1:
+
+Part: RCSBlock_4294809754
+Instance 1:
+
+Part: structuralWing_4294805734
+Instance 1:
+
+Part: RCSBlock_4294805698
+Instance 1:
+
+Part: MK1Fuselage_4294561332
+Instance 1:
+
+Part: delta.small_4292691204
+Instance 1:
+
+Part: elevon3_4292690220
+Instance 1:
+
+Part: toroidalAerospike_4294685750
+Instance 1:
+
+Part: SurfAntenna_4293951262
+Instance 1:
+
