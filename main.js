@@ -1,7 +1,7 @@
 const fs = require('fs').promises;
 const path = require('path');
 
-// Function to extract part names from the craft file
+// Function to extract craft info from the craft file
 function extractCraftInfo(data) {
     console.log('Extracting craft information...');
     const info = {};
