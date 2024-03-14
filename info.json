@@ -1,3 +1,10 @@
 {
-  "strutOcto": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Structural\\strutOcto\\strutOcto.cfg"
+  "strutOcto": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Structural\\strutOcto\\strutOcto.cfg",
+  "x": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\FuelTank\\xenonTank\\xenonTank.cfg",
+  "structuralMiniNode": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Structural\\structuralMicronode\\structuralMicronode.cfg",
+  "wheelMed": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Wheel\\roverWheelTR-2L\\roverWheelTR-2L.cfg",
+  "miniFuselage": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\FuelTank\\miniFuselage\\miniFuselage.cfg",
+  "batteryBankMini": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Electrical\\z-200Battery\\z-200Battery.cfg",
+  "IntakeRadialLong": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Aero\\intakeRadialLong\\intakeRadialLong.cfg",
+  "miniJetEngine": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Engine\\miniJet\\SmallJetEngine.cfg"
 }
