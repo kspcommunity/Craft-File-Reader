@@ -24,7 +24,8 @@ function getCraftInfo(data) {
         description: '',
         type: '',
         version: '',
-        size: ''
+        size: '',
+        dimensions: ''
     };
 
     for (var i = 0; i < lines.length; i++) {
@@ -39,6 +40,10 @@ function getCraftInfo(data) {
             craftInfo.version = line.split('=')[1].trim();
         } else if (line.startsWith('size =')) {
             craftInfo.size = line.split('=')[1].trim();
+            var dimensions = craftInfo.size.split(',');
+            craftInfo.dimensions = dimensions.map(function(dim) {
+                return parseFloat(dim).toFixed(2);
+            }).join(' x ');
         }
     }
 
@@ -52,6 +57,7 @@ function displayCraftInfo(info) {
         <strong>Description:</strong> ${info.description}<br>
         <strong>Type:</strong> ${info.type}<br>
         <strong>Version:</strong> ${info.version}<br>
+        <strong>Dimensions:</strong> ${info.dimensions}<br>
         <strong>Size:</strong> ${info.size}<br>
     `;
 }
