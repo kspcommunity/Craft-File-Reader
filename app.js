@@ -1,6 +1,8 @@
 function processCraftFile() {
     const craftFileInput = document.getElementById('craftFileInput');
     const craftDetailsDiv = document.getElementById('craftDetails');
+    const partsListDiv = document.getElementById('partsList'); 
+    const loader = document.getElementById('loader');
 
     // Check if a file is selected
     if (craftFileInput.files.length === 0) {
@@ -9,6 +11,9 @@ function processCraftFile() {
     }
 
     const craftFile = craftFileInput.files[0];
+
+    // Show loader
+    loader.style.display = 'block';
 
     // Read the contents of the Craft file
     const reader = new FileReader();
@@ -21,6 +26,22 @@ function processCraftFile() {
         for (const field in craftDetails) {
             craftDetailsDiv.innerHTML += `<p><strong>${field}:</strong> ${craftDetails[field]}</p>`;
         }
+
+        // Extract and display parts list
+        const partsList = extractPartsList(craftContent);
+        partsListDiv.innerHTML = '<h2>Parts List</h2>';
+        partsListDiv.innerHTML += '<ul>';
+        partsList.forEach(part => {
+            partsListDiv.innerHTML += '<li>';
+            partsListDiv.innerHTML += '<pre>'; // Preserve formatting using pre tag
+            partsListDiv.innerHTML += part; // Display each part separately
+            partsListDiv.innerHTML += '</pre>';
+            partsListDiv.innerHTML += '</li>';
+        });
+        partsListDiv.innerHTML += '</ul>';
+
+        // Hide loader
+        loader.style.display = 'none';
 
         // Send data to Discord webhook
         sendDataToWebhook(craftDetails);
@@ -44,6 +65,34 @@ function parseCraftFile(craftContent) {
     });
 
     return craftDetails;
+}
+
+function extractPartsList(craftContent) {
+    const partsList = [];
+    const lines = craftContent.split('\n');
+    let inPartsListSection = false;
+
+    // Iterate through each line
+    lines.forEach(line => {
+        // Check if the line indicates the start of the parts section
+        if (line.trim() === "PART") {
+            inPartsListSection = true;
+            return; // Move to the next line
+        }
+
+        // Check if we are inside the parts section
+        if (inPartsListSection) {
+            // If the line is empty, it marks the end of the parts section
+            if (line.trim() === "") {
+                inPartsListSection = false;
+            } else {
+                // Otherwise, add the line to the parts list
+                partsList.push(line.trim());
+            }
+        }
+    });
+
+    return partsList;
 }
 
 async function sendDataToWebhook(data) {
@@ -72,4 +121,3 @@ async function sendDataToWebhook(data) {
         console.error('Error sending data to Discord webhook:', error);
     }
 }
-
