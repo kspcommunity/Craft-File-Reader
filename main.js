@@ -1,6 +1,34 @@
 const fs = require('fs').promises;
 const path = require('path');
-const { promisify } = require('util');
+
+// Function to extract part names from the craft file
+function extractCraftInfo(data) {
+    console.log('Extracting craft information...');
+    const info = {};
+
+    // Extract craft name, description, type, and version
+    const nameMatch = data.match(/^ship (.+)/m);
+    if (nameMatch) {
+        info.name = nameMatch[1].replace(/^= /, ''); // Remove '=' at the beginning
+    }
+
+    const descMatch = data.match(/^description (.+)/m);
+    if (descMatch) {
+        info.description = descMatch[1].replace(/^= /, ''); // Remove '=' at the beginning
+    }
+
+    const typeMatch = data.match(/^type (.+)/m);
+    if (typeMatch) {
+        info.type = typeMatch[1].replace(/^= /, ''); // Remove '=' at the beginning
+    }
+
+    const versionMatch = data.match(/^version (.+)/m);
+    if (versionMatch) {
+        info.version = versionMatch[1].replace(/^= /, ''); // Remove '=' at the beginning
+    }
+
+    return info;
+}
 
 // Function to extract part names from the craft file
 function extractPartNames(data) {
@@ -71,6 +99,9 @@ async function main() {
         console.log('Reading data from example.craft...');
         const data = await fs.readFile('example.craft', 'utf8');
 
+        // Extract craft information
+        const craftInfo = extractCraftInfo(data);
+
         // Extract part names
         const partNames = extractPartNames(data);
 
@@ -90,10 +121,13 @@ async function main() {
             partPathObject[partNames[index]] = partPath;
         });
 
-        // Write part names and their paths to info.json
-        console.log('Writing part names and their paths to info.json...');
+        // Include craft information in the object
+        partPathObject.craftInfo = craftInfo;
+
+        // Write part names, paths, and craft information to info.json
+        console.log('Writing part names, paths, and craft information to info.json...');
         await fs.writeFile('info.json', JSON.stringify(partPathObject, null, 2), 'utf8');
-        console.log('Part names and their paths have been written to info.json');
+        console.log('Part names, paths, and craft information have been written to info.json');
     } catch (error) {
         console.error('Error:', error);
     }
