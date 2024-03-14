@@ -16,9 +16,9 @@
   "advSasModule": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Command\\inlineAdvancedStabilizer\\inlineAdvancedStabilizer.cfg",
   "ramAirIntake": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Aero\\ramAirIntake\\ramAirIntake.cfg",
   "craftInfo": {
-    "name": "= Sukhoi Su-27 Flanker Armed",
-    "description": "= Please subscribe to G9 Aerospace on youtube!",
-    "type": "= SPH",
-    "version": "= 1.12.5"
+    "name": "Sukhoi Su-27 Flanker Armed",
+    "description": "Please subscribe to G9 Aerospace on youtube!",
+    "type": "SPH",
+    "version": "1.12.5"
   }
 }
