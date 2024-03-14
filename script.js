@@ -25,7 +25,9 @@ function getCraftInfo(data) {
         type: '',
         version: '',
         size: '',
-        dimensions: ''
+        height: '',
+        width: '',
+        length: ''
     };
 
     for (var i = 0; i < lines.length; i++) {
@@ -41,9 +43,9 @@ function getCraftInfo(data) {
         } else if (line.startsWith('size =')) {
             craftInfo.size = line.split('=')[1].trim();
             var dimensions = craftInfo.size.split(',');
-            craftInfo.dimensions = dimensions.map(function(dim) {
-                return parseFloat(dim).toFixed(2);
-            }).join(' x ');
+            craftInfo.height = parseFloat(dimensions[0]).toFixed(2);
+            craftInfo.width = parseFloat(dimensions[1]).toFixed(2);
+            craftInfo.length = parseFloat(dimensions[2]).toFixed(2);
         }
     }
 
@@ -57,7 +59,8 @@ function displayCraftInfo(info) {
         <strong>Description:</strong> ${info.description}<br>
         <strong>Type:</strong> ${info.type}<br>
         <strong>Version:</strong> ${info.version}<br>
-        <strong>Dimensions:</strong> ${info.dimensions}<br>
-        <strong>Size:</strong> ${info.size}<br>
+        <strong>Height:</strong> ${info.height} m<br>
+        <strong>Width:</strong> ${info.width} m<br>
+        <strong>Length:</strong> ${info.length} m<br>
     `;
 }
