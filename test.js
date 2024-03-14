@@ -3,7 +3,7 @@ const readline = require('readline');
 const path = require('path');
 
 // Open file dialog to select a .craft file
-const filePath = 'test.craft'; // Replace 'example.craft' with the path to your craft file
+const filePath = 'example.craft'; // Replace 'example.craft' with the path to your craft file
 const fileStream = fs.createReadStream(filePath);
 const rl = readline.createInterface({
   input: fileStream,
@@ -13,21 +13,25 @@ const rl = readline.createInterface({
 // Initialize craftInfo object to store field-value pairs
 const craftInfo = {
   filename: path.basename(filePath),
-  parts: {}
+  parts: []
 };
+let currentPart = null;
 
 // Read each line of the file
 rl.on('line', (line) => {
-  // Split the line into field and value
-  const [field, value] = line.split('=');
-  if (field && value) {
-    // Check if the field is 'part' to identify parts
-    if (field.trim() === 'part') {
-      const partName = value.trim();
-      // Add part to the parts object
-      craftInfo.parts[partName] = craftInfo.parts[partName] || [];
-      // Add the current part's information to the array of parts
-      craftInfo.parts[partName].push(parsePartFields(line));
+  // Check if the line indicates the start of a new part
+  if (line.trim() === 'PART') {
+    currentPart = {
+      fields: {}
+    };
+    craftInfo.parts.push(currentPart);
+  } else if (line.trim() === '}' && currentPart) {
+    currentPart = null; // Reset current part when encountering the end of a part definition
+  } else if (currentPart) {
+    // Parse fields within a part definition
+    const [field, value] = line.split('=');
+    if (field && value) {
+      currentPart.fields[field.trim()] = value.trim();
     }
   }
 });
@@ -39,34 +43,15 @@ rl.on('close', () => {
   console.log(`Part information written to ${outputFile}`);
 });
 
-// Function to parse the fields of a part line
-function parsePartFields(line) {
-  const fields = {};
-  // Split the line into field and value
-  const parts = line.split('=');
-  parts.shift(); // Remove 'part' field
-  // Add each field-value pair to the fields object
-  parts.forEach(part => {
-    const [field, value] = part.split(':');
-    if (field && value) {
-      fields[field.trim()] = value.trim();
-    }
-  });
-  return fields;
-}
-
 // Function to write part information to a file
 function writePartListToFile(outputFile, parts) {
   let outputContent = '';
-  for (const partName in parts) {
-    outputContent += `Part: ${partName}\n`;
-    parts[partName].forEach((part, index) => {
-      outputContent += `Instance ${index + 1}:\n`;
-      for (const field in part) {
-        outputContent += `${field}: ${part[field]}\n`;
-      }
-      outputContent += '\n';
-    });
-  }
+  parts.forEach((part, index) => {
+    outputContent += `Part ${index + 1}:\n`;
+    for (const field in part.fields) {
+      outputContent += `${field}: ${part.fields[field]}\n`;
+    }
+    outputContent += '\n';
+  });
   fs.writeFileSync(outputFile, outputContent);
 }
