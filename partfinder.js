@@ -33,27 +33,68 @@ const rl = readline.createInterface({
     crlfDelay: Infinity
 });
 
-// Initialize array to store part names
-const partNames = [];
+// Initialize array to store part details
+const craftDetails = {
+    parts: [],
+    partCount: 0,
+    resources: [],
+    lighting: [],
+    techRequired: '',
+    mass: 0
+};
 
 // Read each line of the file
 rl.on('line', (line) => {
     // Check if the line indicates the start of a new part
-    if (line.trim().startsWith('part = ')) {
-        const partName = line.trim().split('=')[1].trim().split('_')[0]; // Extract part name without numerical suffix
-        partNames.push(partName);
+    if (line.trim().startsWith('PART')) {
+        const part = {};
+        craftDetails.partCount++;
+
+        rl.on('line', (partLine) => {
+            if (partLine.trim() === '}') {
+                craftDetails.parts.push(part);
+                rl.removeListener('line', arguments.callee);
+            } else {
+                const [key, value] = partLine.split('=').map((str) => str.trim());
+                part[key] = value;
+            }
+        });
+    } else if (line.trim().startsWith('RESOURCE')) {
+        const resource = {};
+
+        rl.on('line', (resourceLine) => {
+            if (resourceLine.trim() === '}') {
+                craftDetails.resources.push(resource);
+                rl.removeListener('line', arguments.callee);
+            } else {
+                const [key, value] = resourceLine.split('=').map((str) => str.trim());
+                resource[key] = value;
+            }
+        });
+    } else if (line.trim().startsWith('lighting')) {
+        const lighting = {};
+
+        rl.on('line', (lightingLine) => {
+            if (lightingLine.trim() === '}') {
+                craftDetails.lighting.push(lighting);
+                rl.removeListener('line', arguments.callee);
+            } else {
+                const [key, value] = lightingLine.split('=').map((str) => str.trim());
+                lighting[key] = value;
+            }
+        });
+    } else if (line.trim().startsWith('TechRequired')) {
+        const [, techRequired] = line.trim().split('=').map((str) => str.trim());
+        craftDetails.techRequired = techRequired;
+    } else if (line.trim().startsWith('mass')) {
+        const [, mass] = line.trim().split('=').map((str) => parseFloat(str.trim()));
+        craftDetails.mass = mass;
     }
 });
 
-// When all lines are read, search for the corresponding configuration files
+// When all lines are read, write craft details to file
 rl.on('close', () => {
-    const gameDataDir = path.join(__dirname, 'GameData'); // Assuming GameData directory is in the same location as this script
-    partNames.forEach(partName => {
-        const cfgFilePath = findPart(partName, gameDataDir);
-        if (cfgFilePath) {
-            console.log(`${partName}: ${cfgFilePath}`);
-        } else {
-            console.log(`${partName}: Part not found.`);
-        }
-    });
+    const craftDetailsFilePath = 'craftdetails.txt'; // File path for craft details
+    fs.writeFileSync(craftDetailsFilePath, JSON.stringify(craftDetails, null, 2));
+    console.log(`Craft details written to ${craftDetailsFilePath}`);
 });
