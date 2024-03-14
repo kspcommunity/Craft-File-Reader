@@ -6,25 +6,30 @@ function extractCraftInfo(data) {
     console.log('Extracting craft information...');
     const info = {};
 
-    // Extract craft name, description, type, and version
-    const nameMatch = data.match(/^ship (.+)/m);
-    if (nameMatch) {
-        info.name = nameMatch[1].replace(/^= /, ''); // Remove '=' at the beginning
-    }
+    try {
+        // Extract craft name, description, type, and version
+        const nameMatch = data.match(/^ship (.+)/m);
+        if (nameMatch) {
+            info.Name = nameMatch[1].replace(/^= /, ''); // Remove '=' at the beginning
+        }
 
-    const descMatch = data.match(/^description (.+)/m);
-    if (descMatch) {
-        info.description = descMatch[1].replace(/^= /, ''); // Remove '=' at the beginning
-    }
+        const descMatch = data.match(/^description (.+)/m);
+        if (descMatch) {
+            info.Description = descMatch[1].replace(/^= /, ''); // Remove '=' at the beginning
+        }
 
-    const typeMatch = data.match(/^type (.+)/m);
-    if (typeMatch) {
-        info.type = typeMatch[1].replace(/^= /, ''); // Remove '=' at the beginning
-    }
+        const typeMatch = data.match(/^type (.+)/m);
+        if (typeMatch) {
+            info.Type = typeMatch[1].replace(/^= /, ''); // Remove '=' at the beginning
+        }
 
-    const versionMatch = data.match(/^version (.+)/m);
-    if (versionMatch) {
-        info.version = versionMatch[1].replace(/^= /, ''); // Remove '=' at the beginning
+        const versionMatch = data.match(/^version (.+)/m);
+        if (versionMatch) {
+            info.Version = versionMatch[1].replace(/^= /, ''); // Remove '=' at the beginning
+        }
+    } catch (error) {
+        console.error('Error extracting craft information:', error);
+        throw error;
     }
 
     return info;
@@ -36,9 +41,14 @@ function extractPartNames(data) {
     const partRegex = /([a-zA-Z]+)(?:_\d+)/g;
     const partNames = new Set();
 
-    let match;
-    while ((match = partRegex.exec(data)) !== null) {
-        partNames.add(match[1]);
+    try {
+        let match;
+        while ((match = partRegex.exec(data)) !== null) {
+            partNames.add(match[1]);
+        }
+    } catch (error) {
+        console.error('Error extracting part names:', error);
+        throw error;
     }
 
     return Array.from(partNames);
@@ -46,23 +56,31 @@ function extractPartNames(data) {
 
 // Function to search for a part within the "Parts" folder of each mod
 async function findPartInMods(partName, gamedataPath) {
-    const modFolders = await fs.readdir(gamedataPath);
+    try {
+        console.log(`Searching for part '${partName}' in mods...`);
+        const modFolders = await fs.readdir(gamedataPath);
+        const foundInMods = [];
 
-    const promises = modFolders.map(async modFolder => {
-        const modFolderPath = path.join(gamedataPath, modFolder);
-        const partsFolderPath = path.join(modFolderPath, 'Parts');
-        console.log(`Searching for part '${partName}' in mod '${modFolder}'...`);
-        return findPart(partName, partsFolderPath);
-    });
+        for (const modFolder of modFolders) {
+            const modFolderPath = path.join(gamedataPath, modFolder);
+            const partsFolderPath = path.join(modFolderPath, 'Parts');
+            const partPath = await findPart(partName, partsFolderPath);
+            if (partPath) {
+                foundInMods.push(modFolder);
+            }
+        }
 
-    const partPaths = await Promise.all(promises);
-    const foundPartPath = partPaths.find(partPath => partPath !== null);
-    return foundPartPath !== undefined ? foundPartPath : `Part '${partName}' not found in any mod.`;
+        return foundInMods.length > 0 ? foundInMods : ['UnknownMod'];
+    } catch (error) {
+        console.error('Error searching for part in mods:', error);
+        throw error;
+    }
 }
 
 // Function to search for a part in a directory (with nested subfolders)
 async function findPart(partName, directory) {
     try {
+        console.log(`Searching for part '${partName}' in directory: ${directory}`);
         const files = await fs.readdir(directory);
 
         for (const file of files) {
@@ -70,13 +88,11 @@ async function findPart(partName, directory) {
             const stat = await fs.stat(filePath);
 
             if (stat.isDirectory()) {
-                console.log(`Descending into directory: ${filePath}`);
                 const result = await findPart(partName, filePath); // Recursively search subfolders
                 if (result) {
                     return result;
                 }
             } else if (file.endsWith('.cfg')) {
-                console.log(`Checking file: ${filePath}`);
                 const content = await fs.readFile(filePath, 'utf-8');
                 if (content.includes(`name = ${partName}`)) {
                     console.log(`Part '${partName}' found in file: ${filePath}`);
@@ -88,8 +104,8 @@ async function findPart(partName, directory) {
         console.log(`Part '${partName}' not found in directory: ${directory}`);
         return null;
     } catch (error) {
-        console.error('Error:', error);
-        return null;
+        console.error('Error searching for part:', error);
+        throw error;
     }
 }
 
@@ -105,30 +121,37 @@ async function main() {
 
         // Extract part names
         const partNames = extractPartNames(data);
+        const totalPartCount = partNames.length;
 
         // Directory to search for part paths
         const gamedataPath = path.join(__dirname, 'GameData');
 
         // Search for each part in parallel
         console.log('Searching for part paths...');
-        const partPaths = await Promise.all(partNames.map(partName => findPartInMods(partName, gamedataPath)));
+        const partDetails = {};
+        for (const partName of partNames) {
+            const partPath = await findPart(partName, gamedataPath);
+            const modDetails = await findPartInMods(partName, gamedataPath);
+            partDetails[partName] = {
+                Path: partPath !== null ? partPath : `Part '${partName}' not found in any mod.`,
+                UsageCount: partPath !== null ? 1 : 0,
+                ModDetails: modDetails
+            };
+        }
 
-        // Filter out null results
-        const filteredPartPaths = partPaths.filter(partPath => partPath !== null);
+        // Construct object with craft details, part details, and mod details
+        const craftDetails = {
+            CraftDetails: {
+                ...craftInfo,
+                TotalPartCount: totalPartCount
+            },
+            Parts: partDetails
+        };
 
-        // Construct object with part names and paths
-        const partPathObject = {};
-        filteredPartPaths.forEach((partPath, index) => {
-            partPathObject[partNames[index]] = partPath;
-        });
-
-        // Include craft information in the object
-        partPathObject.craftInfo = craftInfo;
-
-        // Write part names, paths, and craft information to info.json
-        console.log('Writing part names, paths, and craft information to info.json...');
-        await fs.writeFile('info.json', JSON.stringify(partPathObject, null, 2), 'utf8');
-        console.log('Part names, paths, and craft information have been written to info.json');
+        // Write craft details to info.json
+        console.log('Writing craft details to info.json...');
+        await fs.writeFile('info.json', JSON.stringify(craftDetails, null, 2), 'utf8');
+        console.log('Craft details have been written to info.json');
     } catch (error) {
         console.error('Error:', error);
     }

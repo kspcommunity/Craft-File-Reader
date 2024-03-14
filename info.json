@@ -1,28 +1,151 @@
 {
-  "Cockpit": "Part 'Cockpit' not found in any mod.",
-  "noseConeAdapter": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Aero\\cones\\noseConeAdapter.cfg",
-  "airplaneTail": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Aero\\cones\\tailConnectorA.cfg",
-  "GearSmall": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Wheel\\LandingGear\\GearMedium.cfg",
-  "avionicsNoseCone": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Aero\\cones\\avionicsNoseCone.cfg",
-  "miniFuselage": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\FuelTank\\miniFuselage\\miniFuselage.cfg",
-  "bdPilotAI": "Part 'bdPilotAI' not found in any mod.",
-  "SurfAntenna": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Utility\\DirectAntennas\\C16S.cfg",
-  "missileController": "Part 'missileController' not found in any mod.",
-  "Null": "Part 'Null' not found in any mod.",
-  "flagPartFlat": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Utility\\flags\\flagFlat\\flagFlat.cfg",
-  "wingStrake": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Aero\\wings\\strake.cfg",
-  "StandardCtrlSrf": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Aero\\wings\\elevon1.cfg",
-  "longAntenna": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Utility\\commsDish16\\commsAntenna16.cfg",
-  "radialEngineBody": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Structural\\mk1Parts\\engineBodyRadial.cfg",
-  "tailfin": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Aero\\airplaneFins\\tailfin.cfg",
-  "standardNoseCone": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Aero\\cones\\smallNoseCone.cfg",
-  "turboJet": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Engine\\jetEngines\\jetEngineAfterburning.cfg",
-  "advSasModule": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Command\\inlineAdvancedStabilizer\\inlineAdvancedStabilizer.cfg",
-  "ramAirIntake": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Aero\\ramAirIntake\\ramAirIntake.cfg",
-  "craftInfo": {
-    "name": "Sukhoi Su-27 Flanker Armed",
-    "description": "Please subscribe to G9 Aerospace on youtube!",
-    "type": "SPH",
-    "version": "1.12.5"
+  "CraftDetails": {
+    "Name": "Sukhoi Su-27 Flanker Armed",
+    "Description": "Please subscribe to G9 Aerospace on youtube!",
+    "Type": "SPH",
+    "Version": "1.12.5",
+    "TotalPartCount": 20
+  },
+  "Parts": {
+    "Cockpit": {
+      "Path": "Part 'Cockpit' not found in any mod.",
+      "UsageCount": 0,
+      "ModDetails": [
+        "UnknownMod"
+      ]
+    },
+    "noseConeAdapter": {
+      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Aero\\cones\\noseConeAdapter.cfg",
+      "UsageCount": 1,
+      "ModDetails": [
+        "Squad"
+      ]
+    },
+    "airplaneTail": {
+      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Aero\\cones\\tailConnectorA.cfg",
+      "UsageCount": 1,
+      "ModDetails": [
+        "Squad"
+      ]
+    },
+    "GearSmall": {
+      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Wheel\\LandingGear\\GearMedium.cfg",
+      "UsageCount": 1,
+      "ModDetails": [
+        "Squad"
+      ]
+    },
+    "avionicsNoseCone": {
+      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Aero\\cones\\avionicsNoseCone.cfg",
+      "UsageCount": 1,
+      "ModDetails": [
+        "Squad"
+      ]
+    },
+    "miniFuselage": {
+      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\FuelTank\\miniFuselage\\miniFuselage.cfg",
+      "UsageCount": 1,
+      "ModDetails": [
+        "Squad"
+      ]
+    },
+    "bdPilotAI": {
+      "Path": "Part 'bdPilotAI' not found in any mod.",
+      "UsageCount": 0,
+      "ModDetails": [
+        "UnknownMod"
+      ]
+    },
+    "SurfAntenna": {
+      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Utility\\DirectAntennas\\C16S.cfg",
+      "UsageCount": 1,
+      "ModDetails": [
+        "Squad"
+      ]
+    },
+    "missileController": {
+      "Path": "Part 'missileController' not found in any mod.",
+      "UsageCount": 0,
+      "ModDetails": [
+        "UnknownMod"
+      ]
+    },
+    "Null": {
+      "Path": "Part 'Null' not found in any mod.",
+      "UsageCount": 0,
+      "ModDetails": [
+        "UnknownMod"
+      ]
+    },
+    "flagPartFlat": {
+      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Utility\\flags\\flagFlat\\flagFlat.cfg",
+      "UsageCount": 1,
+      "ModDetails": [
+        "Squad"
+      ]
+    },
+    "wingStrake": {
+      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Aero\\wings\\strake.cfg",
+      "UsageCount": 1,
+      "ModDetails": [
+        "Squad"
+      ]
+    },
+    "StandardCtrlSrf": {
+      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Aero\\wings\\elevon1.cfg",
+      "UsageCount": 1,
+      "ModDetails": [
+        "Squad"
+      ]
+    },
+    "longAntenna": {
+      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Contracts\\constructionContractParts.cfg",
+      "UsageCount": 1,
+      "ModDetails": [
+        "Squad"
+      ]
+    },
+    "radialEngineBody": {
+      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Structural\\mk1Parts\\engineBodyRadial.cfg",
+      "UsageCount": 1,
+      "ModDetails": [
+        "Squad"
+      ]
+    },
+    "tailfin": {
+      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Aero\\airplaneFins\\tailfin.cfg",
+      "UsageCount": 1,
+      "ModDetails": [
+        "Squad"
+      ]
+    },
+    "standardNoseCone": {
+      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Aero\\cones\\smallNoseCone.cfg",
+      "UsageCount": 1,
+      "ModDetails": [
+        "Squad"
+      ]
+    },
+    "turboJet": {
+      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Engine\\jetEngines\\jetEngineAfterburning.cfg",
+      "UsageCount": 1,
+      "ModDetails": [
+        "Squad"
+      ]
+    },
+    "advSasModule": {
+      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Command\\inlineAdvancedStabilizer\\inlineAdvancedStabilizer.cfg",
+      "UsageCount": 1,
+      "ModDetails": [
+        "Squad"
+      ]
+    },
+    "ramAirIntake": {
+      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Aero\\ramAirIntake\\ramAirIntake.cfg",
+      "UsageCount": 1,
+      "ModDetails": [
+        "Squad"
+      ]
+    }
   }
 }
