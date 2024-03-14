@@ -1,17 +1,17 @@
-ship = #autoLOC_501176 //#autoLOC_501176 = Aeris 4A
+﻿ship = #autoLOC_501174 //#autoLOC_501174 = Aeris 3A
 version = 1.2.0
-description = #autoLOC_501177 //#autoLOC_501177 = The Aeris 4A is a spaceplane capable of reaching orbit, if flown correctly.¨¨
+description = #autoLOC_501175 //#autoLOC_501175 = The Aeris 3A is a small and nimble one-seater plane, mostly used as a training craft for fixed-wing flight, and to annoy ground staff by 'buzzing' the space center facilities. ¨¨
 type = SPH
-size = 11.3635263,4.16972065,12.7015896
+size = 8.54607391,3.10917664,8.48044586
 PART
 {
-	part = Mark1Cockpit_4294811528
+	part = Mark1Cockpit_4294820102
 	partName = Part
-	pos = -0.01364478,3.00983596,2.53253388
+	pos = 0.206589505,10.3309603,3.15244007
 	attPos = 0,0,0
-	attPos0 = -0.01364478,3.00983596,2.53253388
-	rot = 0.707106829,0,0,0.707106829
-	attRot = 0,0,0,1
+	attPos0 = 0.206589505,10.3309603,3.15244007
+	rot = -0.707106829,0,0,-0.707106829
+	attRot = 0,0,0,-0.999999881
 	attRot0 = 0.707106829,0,0,0.707106829
 	mir = 1,1,1
 	symMethod = Mirror
@@ -19,20 +19,19 @@ PART
 	istg = 0
 	resPri = 0
 	dstg = 0
-	sidx = -1
+	sidx = 0
 	sqor = -1
 	sepI = 0
 	attm = 0
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = linearRcs_4294811464
-	link = linearRcs_4294811426
-	link = SmallGearBay_4294811388
-	link = advSasModule_4294811210
-	link = R8winglet_4294809932
-	link = R8winglet_4294809894
-	attN = bottom,advSasModule_4294811210
+	link = R8winglet_4294820038
+	link = R8winglet_4294820000
+	link = telescopicLadder_4294819784
+	link = SmallGearBay_4294819962
+	link = radialEngineBody_4292455698
+	attN = bottom,radialEngineBody_4292455698
 	EVENTS
 	{
 	}
@@ -245,14 +244,156 @@ PART
 }
 PART
 {
-	part = linearRcs_4294811464
+	part = R8winglet_4294820038
 	partName = Part
-	pos = -0.285993487,3.00983596,3.90350485
-	attPos = 0,0,0
+	pos = 1.11243296,10.0581703,4.58668518
+	attPos = 0.905843198,1.43424499,0.272791713
 	attPos0 = 0,0,0
-	rot = 0.703244328,-0.701664925,-0.0738089383,0.0875563622
-	attRot = 0,0,0,1
+	rot = -0.00102261815,0.709066868,0.699097693,0.0921173096
+	attRot = -0.00102262199,0.709066927,0.699097812,0.092117317
 	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Mirror
+	autostrutMode = Off
+	istg = 0
+	resPri = 0
+	dstg = 0
+	sidx = 8
+	sqor = -1
+	sepI = 0
+	attm = 1
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = R8winglet_4294820000
+	srfN = srfAttach,Mark1Cockpit_4294820102
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleControlSurface
+		isEnabled = True
+		mirrorDeploy = True
+		usesMirrorDeploy = True
+		ignorePitch = False
+		ignoreYaw = True
+		ignoreRoll = True
+		deploy = False
+		deployInvert = False
+		partDeployInvert = False
+		authorityLimiter = 100
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ActionToggle
+			{
+				actionGroup = None
+			}
+			ActionExtend
+			{
+				actionGroup = None
+			}
+			ActionRetract
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = R8winglet_4294820000
+	partName = Part
+	pos = -0.699253678,10.0581703,4.58668518
+	attPos = -0.905843198,1.43424499,0.272791713
+	attPos0 = 0,0,0
+	rot = -0.699097991,-0.0921173096,0.00102261826,-0.709066629
+	attRot = -0.00102262199,0.709066927,0.699097812,0.092117317
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Mirror
+	autostrutMode = Off
+	istg = 0
+	resPri = 0
+	dstg = 0
+	sidx = 9
+	sqor = -1
+	sepI = 0
+	attm = 1
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = R8winglet_4294820038
+	srfN = srfAttach,Mark1Cockpit_4294820102
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleControlSurface
+		isEnabled = True
+		mirrorDeploy = False
+		usesMirrorDeploy = True
+		ignorePitch = False
+		ignoreYaw = True
+		ignoreRoll = True
+		deploy = False
+		deployInvert = False
+		partDeployInvert = False
+		authorityLimiter = 100
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ActionToggle
+			{
+				actionGroup = None
+			}
+			ActionExtend
+			{
+				actionGroup = None
+			}
+			ActionRetract
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = telescopicLadder_4294819784
+	partName = Part
+	pos = -0.0990762264,9.80152512,3.34374094
+	attPos = 0,0.0544595905,0
+	attPos0 = -0.305665612,0.136841595,0.529428482
+	rot = 0.00661367085,-0.00381846586,6.06523756E-08,-0.999970853
+	attRot = 0.612336874,-0.353574008,-0.348877013,0.615072489
+	attRot0 = 0.615054607,-0.358219713,-0.348866493,-0.609654605
 	mir = 1,1,1
 	symMethod = Mirror
 	autostrutMode = Off
@@ -266,8 +407,7 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = linearRcs_4294811426
-	srfN = srfAttach,Mark1Cockpit_4294811528
+	srfN = srfAttach,Mark1Cockpit_4294820102
 	EVENTS
 	{
 	}
@@ -279,26 +419,24 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleRCSFX
+		name = RetractableLadder
 		isEnabled = True
-		rcsEnabled = True
-		thrustPercentage = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		enableX = True
-		enableY = True
-		enableZ = True
-		useThrottle = False
-		fullThrust = False
-		stagingEnabled = False
+		StateName = Retracted
+		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
 			ToggleAction
+			{
+				actionGroup = None
+			}
+			ExtendAction
+			{
+				actionGroup = None
+			}
+			RetractAction
 			{
 				actionGroup = None
 			}
@@ -310,79 +448,14 @@ PART
 }
 PART
 {
-	part = linearRcs_4294811426
+	part = SmallGearBay_4294819962
 	partName = Part
-	pos = 0.258703798,3.00983596,3.90350485
-	attPos = 0,0,0
-	attPos0 = 0,0,0
-	rot = -0.703243971,-0.701665282,-0.0738090277,-0.0875563025
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = 0
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = linearRcs_4294811464
-	srfN = srfAttach,Mark1Cockpit_4294811528
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleRCSFX
-		isEnabled = True
-		rcsEnabled = True
-		thrustPercentage = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		enableX = True
-		enableY = True
-		enableZ = True
-		useThrottle = False
-		fullThrust = False
-		stagingEnabled = False
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = SmallGearBay_4294811388
-	partName = Part
-	pos = -0.01364478,2.44628572,3.43206787
-	attPos = 0,0,0
-	attPos0 = 0,0,0
-	rot = 8.52406572E-08,-0.999993205,0.00374308228,9.22364407E-09
-	attRot = 8.52406075E-08,-0.999993086,0.00374310394,9.22363075E-09
-	attRot0 = 0,0,0,1
+	pos = 0.206589505,9.83066559,4.81706047
+	attPos = 1.19209304E-07,1.19247901,0.603663385
+	attPos0 = 0,1.66462004,0.500289977
+	rot = -3.02139957E-09,-0.997610271,0.0690923259,2.09255585E-10
+	attRot = 0,-0.999999881,0,0
+	attRot0 = 2.2844191E-09,0.656561375,-0.754272699,1.98848604E-09
 	mir = 1,1,1
 	symMethod = Mirror
 	autostrutMode = ForceHeaviest
@@ -396,7 +469,7 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	srfN = srfAttach,Mark1Cockpit_4294811528
+	srfN = srfAttach,Mark1Cockpit_4294820102
 	EVENTS
 	{
 	}
@@ -649,16 +722,16 @@ PART
 }
 PART
 {
-	part = advSasModule_4294811210
+	part = radialEngineBody_4292455698
 	partName = Part
-	pos = -0.01364478,3.00983596,2.15225697
+	pos = 0.206589505,10.3309603,2.03993988
 	attPos = 0,0,0
-	attPos0 = 0,0,0
+	attPos0 = 0,-1.11249995,1.32620301E-07
 	rot = 0.707106829,0,0,0.707106829
 	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
+	attRot0 = 0,0,0,-1
 	mir = 1,1,1
-	symMethod = Mirror
+	symMethod = Radial
 	autostrutMode = Off
 	istg = 0
 	resPri = 0
@@ -670,9 +743,9 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = dockingPortLateral_4294811182
-	attN = top,Mark1Cockpit_4294811528
-	attN = bottom,dockingPortLateral_4294811182
+	link = MK1IntakeFuselage_4294606826
+	attN = top,Mark1Cockpit_4294820102
+	attN = bottom,MK1IntakeFuselage_4294606826
 	EVENTS
 	{
 	}
@@ -684,124 +757,9 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleReactionWheel
+		name = ModuleResourceIntake
 		isEnabled = True
-		actuatorModeCycle = 0
-		authorityLimiter = 100
-		stateString = Active
-		stagingEnabled = True
-		WheelState = Active
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			CycleAction
-			{
-				actionGroup = None
-			}
-			Activate
-			{
-				actionGroup = None
-			}
-			Deactivate
-			{
-				actionGroup = None
-			}
-			Toggle
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = dockingPortLateral_4294811182
-	partName = Part
-	pos = -0.01364478,3.00983572,1.37791455
-	attPos = 0,0,0
-	attPos0 = 0,0,0
-	rot = 0.707106829,0,0,0.707106829
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = 1
-	attm = 0
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	link = RCSFuelTank_4294811106
-	attN = top,advSasModule_4294811210
-	attN = bottom,RCSFuelTank_4294811106
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDockingNode
-		isEnabled = True
-		crossfeed = True
-		stagingEnabled = False
-		state = Ready
-		dockUId = 0
-		dockNodeIdx = 0
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			UndockAction
-			{
-				actionGroup = None
-			}
-			DecoupleAction
-			{
-				actionGroup = None
-			}
-			EnableXFeedAction
-			{
-				actionGroup = None
-			}
-			DisableXFeedAction
-			{
-				actionGroup = None
-			}
-			ToggleXFeedAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleAnimateGeneric
-		isEnabled = True
-		aniState = LOCKED
-		animSwitch = True
-		animTime = 0
-		animSpeed = -1
-		deployPercent = 100
-		animationIsDisabled = False
+		intakeEnabled = True
 		stagingEnabled = True
 		EVENTS
 		{
@@ -810,54 +768,44 @@ PART
 		{
 			ToggleAction
 			{
-				actionGroup = Custom04
+				actionGroup = None
 			}
 		}
 		UPGRADESAPPLIED
 		{
 		}
 	}
-}
-PART
-{
-	part = RCSFuelTank_4294811106
-	partName = Part
-	pos = -0.01364478,3.00983596,0.517276049
-	attPos = 0,0,0
-	attPos0 = 0,0,0
-	rot = 0.707106829,0,0,0.707106829
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = 1
-	attm = 0
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	link = batteryBank_4293934584
-	attN = top,dockingPortLateral_4294811182
-	attN = bottom,batteryBank_4293934584
-	EVENTS
+	MODULE
 	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
+		name = ModuleAnimateHeat
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
 	}
 	RESOURCE
 	{
-		name = MonoPropellant
-		amount = 100
-		maxAmount = 100
+		name = IntakeAir
+		amount = 5
+		maxAmount = 5
+		flowState = True
+		isTweakable = False
+		hideFlow = False
+		isVisible = False
+		flowMode = Both
+	}
+	RESOURCE
+	{
+		name = LiquidFuel
+		amount = 40
+		maxAmount = 40
 		flowState = True
 		isTweakable = True
 		hideFlow = False
@@ -867,13 +815,13 @@ PART
 }
 PART
 {
-	part = R8winglet_4294809932
+	part = MK1IntakeFuselage_4294606826
 	partName = Part
-	pos = -0.989539504,2.50600505,1.50740409
-	attPos = -0.978357613,-1.02513695,0.452257305
-	attPos0 = 0,0,0
-	rot = 0.702158391,0.03222581,0.0326105952,0.710543334
-	attRot = 0.702158511,0.0322257988,0.0326106101,0.710543215
+	pos = 0.206589505,10.3309603,0.16493845
+	attPos = 0,0,0
+	attPos0 = 0,-1.875,2.23517404E-07
+	rot = 0.707106829,0,0,0.707106829
+	attRot = 0,0,0,0.999999881
 	attRot0 = 0,0,0,1
 	mir = 1,1,1
 	symMethod = Mirror
@@ -884,12 +832,161 @@ PART
 	sidx = -1
 	sqor = -1
 	sepI = 0
+	attm = 0
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	link = deltaWing_4294815718
+	link = deltaWing_4294605372
+	link = JetEngine_4294618874
+	attN = top,radialEngineBody_4292455698
+	attN = bottom,JetEngine_4294618874
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleResourceIntake
+		isEnabled = True
+		intakeEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleAnimateHeat
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	RESOURCE
+	{
+		name = IntakeAir
+		amount = 2
+		maxAmount = 2
+		flowState = True
+		isTweakable = False
+		hideFlow = False
+		isVisible = False
+		flowMode = Both
+	}
+	RESOURCE
+	{
+		name = LiquidFuel
+		amount = 200
+		maxAmount = 200
+		flowState = True
+		isTweakable = True
+		hideFlow = False
+		isVisible = True
+		flowMode = Both
+	}
+}
+PART
+{
+	part = deltaWing_4294815718
+	partName = Part
+	pos = 0.736100614,10.0252504,0.107545853
+	attPos = 0,-0.782698214,-5.96046412E-08
+	attPos0 = 0.529510975,0.725310087,0.305713713
+	rot = -0.0308436938,0.706433773,0.706433773,-0.0308435634
+	attRot = 3.89778709E-10,0.30070591,-1.57086593E-08,0.953717113
+	attRot0 = 9.87816833E-08,-0.999048173,0,0.0436194614
+	mir = 1,1,1
+	symMethod = Mirror
+	autostrutMode = Off
+	istg = 0
+	resPri = 0
+	dstg = 0
+	sidx = 5
+	sqor = -1
+	sepI = 0
 	attm = 1
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = R8winglet_4294809894
-	srfN = srfAttach,Mark1Cockpit_4294811528
+	link = R8winglet_4294815680
+	link = elevon3_4294815638
+	link = elevon2_4294815604
+	link = SmallGearBay_4294815570
+	sym = deltaWing_4294605372
+	srfN = srfAttach,MK1IntakeFuselage_4294606826
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleLiftingSurface
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = R8winglet_4294815680
+	partName = Part
+	pos = 4.34554434,10.9777098,-1.28629875
+	attPos = -3.67871809,-1.39384699,0.634252071
+	attPos0 = 0,0,0
+	rot = -0.52133441,0.477714151,0.477714151,-0.521333814
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Mirror
+	autostrutMode = Off
+	istg = 0
+	resPri = 0
+	dstg = 0
+	sidx = 7
+	sqor = -1
+	sepI = 0
+	attm = 1
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = R8winglet_4294605330
+	srfN = srfAttach,deltaWing_4294815718
 	EVENTS
 	{
 	}
@@ -903,10 +1000,10 @@ PART
 	{
 		name = ModuleControlSurface
 		isEnabled = True
-		mirrorDeploy = False
+		mirrorDeploy = True
 		usesMirrorDeploy = True
-		ignorePitch = False
-		ignoreYaw = True
+		ignorePitch = True
+		ignoreYaw = False
 		ignoreRoll = True
 		deploy = False
 		deployInvert = False
@@ -938,13 +1035,13 @@ PART
 }
 PART
 {
-	part = R8winglet_4294809894
+	part = elevon3_4294815638
 	partName = Part
-	pos = 0.962250173,2.506006,1.50740302
-	attPos = 0.978357613,-1.02513695,0.452257305
+	pos = 1.68418717,10.1411896,-0.989746094
+	attPos = 0,0,0
 	attPos0 = 0,0,0
-	rot = 0.0326105691,0.710543156,0.70215857,0.0322257467
-	attRot = 0.702158511,0.0322257988,0.0326106101,0.710543215
+	rot = -0.0307265408,0.70643878,0.706439018,-0.0307263881
+	attRot = -0.690345526,0.153045893,-0.153045893,0.690345526
 	attRot0 = 0,0,0,1
 	mir = 1,1,1
 	symMethod = Mirror
@@ -959,8 +1056,8 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = R8winglet_4294809932
-	srfN = srfAttach,Mark1Cockpit_4294811528
+	sym = elevon3_4294605286
+	srfN = srfAttach,deltaWing_4294815718
 	EVENTS
 	{
 	}
@@ -1009,123 +1106,13 @@ PART
 }
 PART
 {
-	part = batteryBank_4293934584
+	part = elevon2_4294815604
 	partName = Part
-	pos = -0.01364478,3.00983572,0.121117115
-	attPos = 0,0,0
-	attPos0 = 0,-0.396158576,0
-	rot = 0.707106829,0,0,0.707106829
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = 1
-	attm = 0
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	link = fuelTank.long_4294811080
-	attN = top,RCSFuelTank_4294811106
-	attN = bottom,fuelTank.long_4294811080
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	RESOURCE
-	{
-		name = ElectricCharge
-		amount = 1000
-		maxAmount = 1000
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = fuelTank.long_4294811080
-	partName = Part
-	pos = -0.01364478,3.00983596,-1.86474156
-	attPos = 0,0,0
-	attPos0 = 0,-1.98585522,2.38418508E-07
-	rot = 0.707106829,0,0,0.707106829
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = 1
-	attm = 0
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	link = fuelTank_4294810884
-	link = fuelTank_4294810408
-	link = structuralWing_4294809824
-	link = structuralWing_4294805734
-	link = MK1Fuselage_4294561332
-	link = SurfAntenna_4293951262
-	attN = top,batteryBank_4293934584
-	attN = bottom,MK1Fuselage_4294561332
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	RESOURCE
-	{
-		name = LiquidFuel
-		amount = 360
-		maxAmount = 360
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-	RESOURCE
-	{
-		name = Oxidizer
-		amount = 440
-		maxAmount = 440
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = fuelTank_4294810884
-	partName = Part
-	pos = 1.231884,3.009835,-3.44867396
+	pos = 3.49864078,10.2971201,-0.98974514
 	attPos = 0,0,0
 	attPos0 = 0,0,0
-	rot = -3.09086374E-08,0.707106829,0.707106829,-3.09086303E-08
-	attRot = 0,0,0,1
+	rot = -0.030726539,0.70643878,0.706439018,-0.0307264272
+	attRot = -0.690345585,0.153045893,-0.153045893,0.690345585
 	attRot0 = 0,0,0,1
 	mir = 1,1,1
 	symMethod = Mirror
@@ -1135,77 +1122,13 @@ PART
 	dstg = 0
 	sidx = -1
 	sqor = -1
-	sepI = 1
+	sepI = 0
 	attm = 1
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = turboFanEngine_4294810852
-	link = SmallGearBay_4294810618
-	link = deltaWing_4294809682
-	link = fuelLine_4294267148
-	link = shockConeIntake_4294445008
-	sym = fuelTank_4294810408
-	srfN = srfAttach,fuelTank.long_4294811080
-	attN = top,shockConeIntake_4294445008
-	attN = bottom,turboFanEngine_4294810852
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	RESOURCE
-	{
-		name = LiquidFuel
-		amount = 180
-		maxAmount = 180
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-	RESOURCE
-	{
-		name = Oxidizer
-		amount = 220
-		maxAmount = 220
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = turboFanEngine_4294810852
-	partName = Part
-	pos = 1.231884,3.0098474,-5.77748108
-	attPos = 0,0,0
-	attPos0 = 0,0,0
-	rot = 0.707106709,-3.78498943E-14,-2.74659547E-14,0.707106948
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	istg = 1
-	resPri = 0
-	dstg = 0
-	sidx = 0
-	sqor = 1
-	sepI = 1
-	attm = 0
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = turboFanEngine_4294810376
-	attN = top,fuelTank_4294810884
+	sym = elevon2_4294605250
+	srfN = srfAttach,deltaWing_4294815718
 	EVENTS
 	{
 	}
@@ -1217,30 +1140,32 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleEnginesFX
+		name = ModuleControlSurface
 		isEnabled = True
-		staged = False
-		flameout = False
-		EngineIgnited = False
-		engineShutdown = False
-		currentThrottle = 0
-		thrustPercentage = 100
-		manuallyOverridden = False
+		mirrorDeploy = True
+		usesMirrorDeploy = True
+		ignorePitch = True
+		ignoreYaw = True
+		ignoreRoll = False
+		deploy = False
+		deployInvert = False
+		partDeployInvert = False
+		authorityLimiter = 100
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
-			OnAction
-			{
-				actionGroup = Custom05
-			}
-			ShutdownAction
+			ActionToggle
 			{
 				actionGroup = None
 			}
-			ActivateAction
+			ActionExtend
+			{
+				actionGroup = None
+			}
+			ActionRetract
 			{
 				actionGroup = None
 			}
@@ -1248,152 +1173,18 @@ PART
 		UPGRADESAPPLIED
 		{
 		}
-	}
-	MODULE
-	{
-		name = FXModuleAnimateThrottle
-		isEnabled = True
-		animState = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FXModuleAnimateThrottle
-		isEnabled = True
-		animState = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleGimbal
-		isEnabled = True
-		gimbalLock = False
-		gimbalLimiter = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		gimbalActive = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-			}
-			LockAction
-			{
-				actionGroup = None
-			}
-			FreeAction
-			{
-				actionGroup = None
-			}
-			TogglePitchAction
-			{
-				actionGroup = None
-			}
-			ToggleYawAction
-			{
-				actionGroup = None
-			}
-			ToggleRollAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleAlternator
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleTestSubject
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleSurfaceFX
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	RESOURCE
-	{
-		name = ElectricCharge
-		amount = 0
-		maxAmount = 0.10000000000000001
-		flowState = True
-		isTweakable = False
-		hideFlow = True
-		isVisible = False
-		flowMode = Both
 	}
 }
 PART
 {
-	part = SmallGearBay_4294810618
+	part = SmallGearBay_4294815570
 	partName = Part
-	pos = 1.54262745,2.48038459,-3.2405293
-	attPos = -0.310742587,0.208144695,-0.529448509
-	attPos0 = 0,0,0
-	rot = -3.27825546E-07,-2.0357021E-08,2.45229842E-07,1.00000012
-	attRot = -1.41165402E-09,2.35184796E-08,0.258819014,0.965925872
-	attRot0 = 0,0,0,1
+	pos = 1.93076408,10.00144,1.01315951
+	attPos = 0.00298249698,9.53674316E-07,-0.0340962186
+	attPos0 = -1.19102395,0.905610085,-0.0937523022
+	rot = 0,5.06750475E-10,2.12742735E-09,1
+	attRot = 1.43407703E-07,0.707108021,0.707105577,1.39600601E-07
+	attRot0 = -1.43407703E-07,-0.707108021,-0.707105577,1.396984E-07
 	mir = 1,1,1
 	symMethod = Mirror
 	autostrutMode = ForceHeaviest
@@ -1402,13 +1193,13 @@ PART
 	dstg = 0
 	sidx = -1
 	sqor = -1
-	sepI = 1
+	sepI = 0
 	attm = 1
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = SmallGearBay_4294810142
-	srfN = srfAttach,fuelTank_4294810884
+	sym = SmallGearBay_4292534180
+	srfN = srfAttach,deltaWing_4294815718
 	EVENTS
 	{
 	}
@@ -1661,33 +1452,33 @@ PART
 }
 PART
 {
-	part = deltaWing_4294809682
+	part = deltaWing_4294605372
 	partName = Part
-	pos = 1.85403311,2.95776725,-4.75000668
-	attPos = -0.622146726,-1.30131805,-0.052067969
-	attPos0 = 0,0,0
-	rot = -0.022011999,0.713682353,0.699790895,-0.0215835273
-	attRot = 0.699790895,-0.0215834994,-0.0220119692,0.713682294
-	attRot0 = 0,0,0,1
+	pos = -0.322921515,10.0252504,0.107545376
+	attPos = 0,-0.782698929,-5.96046412E-08
+	attPos0 = -0.529510975,0.725310326,0.305713713
+	rot = -0.706433833,0.0308435205,0.0308436509,-0.706433833
+	attRot = 3.89778709E-10,0.30070591,-1.57086593E-08,0.953717113
+	attRot0 = -2.107342E-07,0.0436194204,9.61475024E-08,-0.999048173
 	mir = 1,1,1
 	symMethod = Mirror
 	autostrutMode = Off
 	istg = 0
 	resPri = 0
 	dstg = 0
-	sidx = -1
+	sidx = 5
 	sqor = -1
-	sepI = 1
+	sepI = 0
 	attm = 1
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = linearRcs_4294809610
-	link = RCSBlock_4294809534
-	link = StandardCtrlSrf_4294809466
-	link = elevon2_4294809406
-	sym = deltaWing_4294805548
-	srfN = srfAttach,fuelTank_4294810884
+	link = R8winglet_4294605330
+	link = elevon3_4294605286
+	link = elevon2_4294605250
+	link = SmallGearBay_4292534180
+	sym = deltaWing_4294815718
+	srfN = srfAttach,MK1IntakeFuselage_4294606826
 	EVENTS
 	{
 	}
@@ -1715,434 +1506,12 @@ PART
 }
 PART
 {
-	part = linearRcs_4294809610
+	part = R8winglet_4294605330
 	partName = Part
-	pos = 5.56340694,3.16617942,-5.79708385
-	attPos = 0,0,0
+	pos = -3.93236089,10.9777098,-1.2862978
+	attPos = -3.67871594,-1.39384496,-0.634252191
 	attPos0 = 0,0,0
-	rot = 0.479565442,0.510088384,-0.489084631,0.520214677
-	attRot = 0.499999911,0.499999911,-0.5,0.499999911
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = 1
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = linearRcs_4294805510
-	srfN = srfAttach,deltaWing_4294809682
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleRCSFX
-		isEnabled = True
-		rcsEnabled = True
-		thrustPercentage = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		enableX = True
-		enableY = True
-		enableZ = True
-		useThrottle = False
-		fullThrust = False
-		stagingEnabled = False
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = RCSBlock_4294809534
-	partName = Part
-	pos = 5.52981138,3.20572925,-5.67448425
-	attPos = 0,0,0
-	attPos0 = 0,0,0
-	rot = -0.0220120456,0.713682532,0.699790716,-0.0215834808
-	attRot = 0.382683396,-9.58287494E-09,-6.09797823E-10,-0.923879623
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = 1
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = RCSBlock_4294805458
-	srfN = srfAttach,deltaWing_4294809682
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleRCSFX
-		isEnabled = True
-		rcsEnabled = True
-		thrustPercentage = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		enableX = True
-		enableY = True
-		enableZ = True
-		useThrottle = False
-		fullThrust = False
-		stagingEnabled = False
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = StandardCtrlSrf_4294809466
-	partName = Part
-	pos = 4.53377628,3.10227942,-5.84709167
-	attPos = 0,0,0
-	attPos0 = 0,0,0
-	rot = -0.0220119953,0.713682532,0.699790716,-0.0215835162
-	attRot = -2.5121481E-15,-2.5121481E-15,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = 1
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = StandardCtrlSrf_4294805376
-	srfN = srfAttach,deltaWing_4294809682
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleControlSurface
-		isEnabled = True
-		mirrorDeploy = False
-		usesMirrorDeploy = True
-		ignorePitch = True
-		ignoreYaw = True
-		ignoreRoll = False
-		deploy = False
-		deployInvert = False
-		partDeployInvert = False
-		authorityLimiter = 100
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ActionToggle
-			{
-				actionGroup = None
-			}
-			ActionExtend
-			{
-				actionGroup = None
-			}
-			ActionRetract
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = elevon2_4294809406
-	partName = Part
-	pos = 2.74496865,2.98258853,-5.84691238
-	attPos = 0,0,0
-	attPos0 = 0,0,0
-	rot = -0.0220119953,0.713682532,0.699790716,-0.0215835162
-	attRot = -0.5,-0.499999911,0.5,-0.499999911
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = 1
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = elevon2_4294805342
-	srfN = srfAttach,deltaWing_4294809682
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleControlSurface
-		isEnabled = True
-		mirrorDeploy = False
-		usesMirrorDeploy = True
-		ignorePitch = False
-		ignoreYaw = True
-		ignoreRoll = True
-		deploy = False
-		deployInvert = False
-		partDeployInvert = False
-		authorityLimiter = 100
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ActionToggle
-			{
-				actionGroup = None
-			}
-			ActionExtend
-			{
-				actionGroup = None
-			}
-			ActionRetract
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = fuelLine_4294267148
-	partName = CompoundPart
-	pos = 0.714189649,3.3513186,-3.51071382
-	attPos = 0,0,0
-	attPos0 = 0.51769191,-0.0620360412,0.341481298
-	rot = -0.683012724,0.18301262,0.183012798,-0.683012724
-	attRot = 0,0,0,1
-	attRot0 = -1.15903802E-07,0.965925813,-2.107342E-07,0.258819014
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = 1
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = fuelLine_4294810222
-	srfN = srfAttach,fuelTank_4294810884
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-		tgt = 4294811080
-		pos = -0.223904356,-0.0542270504,0.0808728784
-		rot = 0,0.499999911,6.29212309E-08,0.866025448
-		dir = -0.917032361,-0.222103074,0.331242979
-	}
-	MODULE
-	{
-		name = CModuleLinkedMesh
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = CModuleFuelLine
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = shockConeIntake_4294445008
-	partName = Part
-	pos = 1.231884,3.009835,-1.85797954
-	attPos = 0,0,0
-	attPos0 = -4.05538199E-14,1.59068894,1.89624899E-07
-	rot = 0.707106829,-1.00485924E-14,-5.02429621E-15,0.707106829
-	attRot = 0,0,0,1
-	attRot0 = 7.53644261E-15,-1,0,-4.37113989E-08
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = 1
-	attm = 0
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = shockConeIntake_4294444846
-	attN = bottom,fuelTank_4294810884
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleResourceIntake
-		isEnabled = True
-		intakeEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleAnimateHeat
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	RESOURCE
-	{
-		name = IntakeAir
-		amount = 2
-		maxAmount = 2
-		flowState = True
-		isTweakable = False
-		hideFlow = False
-		isVisible = False
-		flowMode = Both
-	}
-}
-PART
-{
-	part = fuelTank_4294810408
-	partName = Part
-	pos = -1.25917399,3.009835,-3.44867396
-	attPos = 0,0,0
-	attPos0 = 0,0,0
-	rot = -0.707106829,0,0,-0.707106829
+	rot = 0.47771427,-0.521333754,-0.521334231,0.477714211
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
 	mir = 1,1,1
@@ -2151,1362 +1520,15 @@ PART
 	istg = 0
 	resPri = 0
 	dstg = 0
-	sidx = -1
+	sidx = 7
 	sqor = -1
-	sepI = 1
+	sepI = 0
 	attm = 1
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = turboFanEngine_4294810376
-	link = SmallGearBay_4294810142
-	link = deltaWing_4294805548
-	link = fuelLine_4294810222
-	link = shockConeIntake_4294444846
-	sym = fuelTank_4294810884
-	srfN = srfAttach,fuelTank.long_4294811080
-	attN = top,shockConeIntake_4294444846
-	attN = bottom,turboFanEngine_4294810376
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	RESOURCE
-	{
-		name = LiquidFuel
-		amount = 180
-		maxAmount = 180
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-	RESOURCE
-	{
-		name = Oxidizer
-		amount = 220
-		maxAmount = 220
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = turboFanEngine_4294810376
-	partName = Part
-	pos = -1.25917399,3.0098474,-5.77748108
-	attPos = 0,0,0
-	attPos0 = 0,0,0
-	rot = 0.707106471,-1.21137689E-14,1.97434689E-14,0.707107186
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	istg = 1
-	resPri = 0
-	dstg = 0
-	sidx = 0
-	sqor = 1
-	sepI = 1
-	attm = 0
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = turboFanEngine_4294810852
-	attN = top,fuelTank_4294810408
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleEnginesFX
-		isEnabled = True
-		staged = False
-		flameout = False
-		EngineIgnited = False
-		engineShutdown = False
-		currentThrottle = 0
-		thrustPercentage = 100
-		manuallyOverridden = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			OnAction
-			{
-				actionGroup = Custom05
-			}
-			ShutdownAction
-			{
-				actionGroup = None
-			}
-			ActivateAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FXModuleAnimateThrottle
-		isEnabled = True
-		animState = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FXModuleAnimateThrottle
-		isEnabled = True
-		animState = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleGimbal
-		isEnabled = True
-		gimbalLock = False
-		gimbalLimiter = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		gimbalActive = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-			}
-			LockAction
-			{
-				actionGroup = None
-			}
-			FreeAction
-			{
-				actionGroup = None
-			}
-			TogglePitchAction
-			{
-				actionGroup = None
-			}
-			ToggleYawAction
-			{
-				actionGroup = None
-			}
-			ToggleRollAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleAlternator
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleTestSubject
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleSurfaceFX
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	RESOURCE
-	{
-		name = ElectricCharge
-		amount = 0
-		maxAmount = 0.10000000000000001
-		flowState = True
-		isTweakable = False
-		hideFlow = True
-		isVisible = False
-		flowMode = Both
-	}
-}
-PART
-{
-	part = SmallGearBay_4294810142
-	partName = Part
-	pos = -1.56991601,2.48038459,-3.24052835
-	attPos = -0.310743004,0.208146095,0.529448509
-	attPos0 = 0,0,0
-	rot = -3.27825546E-07,2.0357021E-08,-2.45229842E-07,1.00000012
-	attRot = -1.41165402E-09,2.35184796E-08,0.258819014,0.965925872
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = ForceHeaviest
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = 1
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = SmallGearBay_4294810618
-	srfN = srfAttach,fuelTank_4294810408
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleWheelBase
-		isEnabled = True
-		wheelType = FREE
-		isGrounded = False
-		autoFriction = True
-		frictionMultiplier = 1
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ActAutoFrictionToggle
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelSuspension
-		isEnabled = True
-		springTweakable = 1
-		damperTweakable = 1
-		suspensionPos = (-1, -1, -1)
-		autoBoost = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelSteering
-		isEnabled = True
-		steeringEnabled = False
-		steeringInvert = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelBrakes
-		isEnabled = True
-		brakeTweakable = 100
-		brakeInput = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			BrakeAction
-			{
-				actionGroup = Brakes
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStatusLight
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelDeployment
-		isEnabled = True
-		shieldedCanDeploy = False
-		stateString = 
-		stagingEnabled = True
-		position = 1
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ActionToggle
-			{
-				actionGroup = Gear
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FXModuleConstrainPosition
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FXModuleLookAtConstraint
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleTestSubject
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleLight
-		isEnabled = True
-		isOn = False
-		uiWriteLock = False
-		lightR = 1
-		lightG = 1
-		lightB = 1
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleLightAction
-			{
-				actionGroup = Light
-			}
-			LightOnAction
-			{
-				actionGroup = None
-			}
-			LightOffAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelDamage
-		isEnabled = True
-		isDamaged = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleDragModifier
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleDragModifier
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = deltaWing_4294805548
-	partName = Part
-	pos = -1.88132095,2.95776677,-4.75000286
-	attPos = -0.622147083,-1.30131602,0.0520679206
-	attPos0 = 0,0,0
-	rot = 0.699790895,-0.0215834975,-0.0220119692,0.713682353
-	attRot = 0.699790895,-0.0215834994,-0.0220119692,0.713682294
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = 1
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	link = linearRcs_4294805510
-	link = RCSBlock_4294805458
-	link = StandardCtrlSrf_4294805376
-	link = elevon2_4294805342
-	sym = deltaWing_4294809682
-	srfN = srfAttach,fuelTank_4294810408
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleLiftingSurface
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = linearRcs_4294805510
-	partName = Part
-	pos = -5.59067202,3.16617846,-5.79708004
-	attPos = 0,0,0
-	attPos0 = 0,0,0
-	rot = -0.479565471,0.510088325,-0.489084721,-0.520214677
-	attRot = 0.499999911,0.499999911,-0.5,0.499999911
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = 1
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = linearRcs_4294809610
-	srfN = srfAttach,deltaWing_4294805548
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleRCSFX
-		isEnabled = True
-		rcsEnabled = True
-		thrustPercentage = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		enableX = True
-		enableY = True
-		enableZ = True
-		useThrottle = False
-		fullThrust = False
-		stagingEnabled = False
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = RCSBlock_4294805458
-	partName = Part
-	pos = -5.55707598,3.20572925,-5.6744833
-	attPos = 0,0,0
-	attPos0 = 0,0,0
-	rot = 0.699790716,-0.0215834565,-0.0220120177,0.713682532
-	attRot = 0.382683396,-9.58287494E-09,-6.09797823E-10,-0.923879623
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = 1
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = RCSBlock_4294809534
-	srfN = srfAttach,deltaWing_4294805548
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleRCSFX
-		isEnabled = True
-		rcsEnabled = True
-		thrustPercentage = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		enableX = True
-		enableY = True
-		enableZ = True
-		useThrottle = False
-		fullThrust = False
-		stagingEnabled = False
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = StandardCtrlSrf_4294805376
-	partName = Part
-	pos = -4.56104898,3.10227752,-5.84708977
-	attPos = 0,0,0
-	attPos0 = 0,0,0
-	rot = -0.699790716,0.0215834975,0.0220119804,-0.713682532
-	attRot = -2.5121481E-15,-2.5121481E-15,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = 1
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = StandardCtrlSrf_4294809466
-	srfN = srfAttach,deltaWing_4294805548
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleControlSurface
-		isEnabled = True
-		mirrorDeploy = True
-		usesMirrorDeploy = True
-		ignorePitch = True
-		ignoreYaw = True
-		ignoreRoll = False
-		deploy = False
-		deployInvert = False
-		partDeployInvert = False
-		authorityLimiter = 100
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ActionToggle
-			{
-				actionGroup = None
-			}
-			ActionExtend
-			{
-				actionGroup = None
-			}
-			ActionRetract
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = elevon2_4294805342
-	partName = Part
-	pos = -2.77225065,2.98258662,-5.84691048
-	attPos = 0,0,0
-	attPos0 = 0,0,0
-	rot = 0.699790716,-0.0215834975,-0.0220119804,0.713682532
-	attRot = -0.5,-0.499999911,0.5,-0.499999911
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = 1
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = elevon2_4294809406
-	srfN = srfAttach,deltaWing_4294805548
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleControlSurface
-		isEnabled = True
-		mirrorDeploy = True
-		usesMirrorDeploy = True
-		ignorePitch = False
-		ignoreYaw = True
-		ignoreRoll = True
-		deploy = False
-		deployInvert = False
-		partDeployInvert = False
-		authorityLimiter = 100
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ActionToggle
-			{
-				actionGroup = None
-			}
-			ActionExtend
-			{
-				actionGroup = None
-			}
-			ActionRetract
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = fuelLine_4294810222
-	partName = CompoundPart
-	pos = -0.741481304,3.3513186,-3.51071382
-	attPos = 0,0,0
-	attPos0 = 0.517691612,-0.0620360412,-0.341481209
-	rot = -0.183012873,0.683012664,0.683012784,-0.183012694
-	attRot = 0,0,0,1
-	attRot0 = 1.36977206E-07,-0.965925813,-8.42937027E-08,0.258819103
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = 1
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = fuelLine_4294267148
-	srfN = srfAttach,fuelTank_4294810408
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-		tgt = 4294811080
-		pos = -0.22390604,-0.0542270541,-0.0808734149
-		rot = 0,-0.499999613,2.0876787E-09,0.866025627
-		dir = -0.917032242,-0.222103164,-0.331243128
-	}
-	MODULE
-	{
-		name = CModuleLinkedMesh
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = CModuleFuelLine
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = shockConeIntake_4294444846
-	partName = Part
-	pos = -1.25917399,3.00983596,-1.85797954
-	attPos = 0,0,0
-	attPos0 = 0,1.59068894,-1.89624899E-07
-	rot = 0.707106888,0,0,0.707106769
-	attRot = 0,0,0,1
-	attRot0 = -8.42937027E-08,0,0,-1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = 1
-	attm = 0
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = shockConeIntake_4294445008
-	attN = bottom,fuelTank_4294810408
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleResourceIntake
-		isEnabled = True
-		intakeEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleAnimateHeat
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	RESOURCE
-	{
-		name = IntakeAir
-		amount = 2
-		maxAmount = 2
-		flowState = True
-		isTweakable = False
-		hideFlow = False
-		isVisible = False
-		flowMode = Both
-	}
-}
-PART
-{
-	part = structuralWing_4294809824
-	partName = Part
-	pos = 0.608124316,3.01038694,-0.747812986
-	attPos = 0.621772885,1.11692703,-1.33148106E-07
-	attPos0 = 0,0,0
-	rot = -0.00495919399,0.71305418,0.701075315,-0.00475888699
-	attRot = -0.701075315,0.00475885579,0.00495916279,-0.71305418
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = 1
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	link = RCSBlock_4294809754
-	sym = structuralWing_4294805734
-	srfN = srfAttach,fuelTank.long_4294811080
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleLiftingSurface
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = RCSBlock_4294809754
-	partName = Part
-	pos = 1.30095303,3.0295155,-0.131302357
-	attPos = 0,0,0
-	attPos0 = 0,0,0
-	rot = -0.168640658,0.69277817,0.683477342,0.156454042
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = 1
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = RCSBlock_4294805698
-	srfN = srfAttach,structuralWing_4294809824
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleRCSFX
-		isEnabled = True
-		rcsEnabled = True
-		thrustPercentage = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		enableX = True
-		enableY = True
-		enableZ = True
-		useThrottle = False
-		fullThrust = False
-		stagingEnabled = False
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = structuralWing_4294805734
-	partName = Part
-	pos = -0.635413885,3.01038694,-0.747812033
-	attPos = -0.621772885,1.11692798,-1.33148205E-07
-	attPos0 = 0,0,0
-	rot = -0.701075315,0.00475885579,0.00495916279,-0.71305418
-	attRot = -0.701075315,0.00475885579,0.00495916279,-0.71305418
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = 1
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	link = RCSBlock_4294805698
-	sym = structuralWing_4294809824
-	srfN = srfAttach,fuelTank.long_4294811080
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleLiftingSurface
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = RCSBlock_4294805698
-	partName = Part
-	pos = -1.32823908,3.02951598,-0.131301641
-	attPos = 0,0,0
-	attPos0 = 0,0,0
-	rot = -0.683477223,-0.156454042,0.168640658,-0.692778289
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = 1
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = RCSBlock_4294809754
-	srfN = srfAttach,structuralWing_4294805734
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleRCSFX
-		isEnabled = True
-		rcsEnabled = True
-		thrustPercentage = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		enableX = True
-		enableY = True
-		enableZ = True
-		useThrottle = False
-		fullThrust = False
-		stagingEnabled = False
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = MK1Fuselage_4294561332
-	partName = Part
-	pos = -0.01364478,3.00983596,-4.68976498
-	attPos = 0,0,0
-	attPos0 = 0,-2.82500196,3.36766504E-07
-	rot = 0.707106829,0,0,0.707106829
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = 1
-	attm = 0
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	link = delta.small_4292691204
-	link = toroidalAerospike_4294685750
-	attN = top,fuelTank.long_4294811080
-	attN = bottom,toroidalAerospike_4294685750
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	RESOURCE
-	{
-		name = LiquidFuel
-		amount = 279.99999523162802
-		maxAmount = 400
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = delta.small_4292691204
-	partName = Part
-	pos = -0.0136446701,3.63405013,-5.60671043
-	attPos = 5.96046412E-08,-0.532286227,0.0169612207
-	attPos0 = 5.96046412E-08,-0.916941583,-0.62420851
-	rot = -0.499999911,0.500000179,0.499999911,-0.500000179
-	attRot = 0,0,0,1
-	attRot0 = 1.89660796E-07,0.707106829,-1.89660796E-07,-0.707106829
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = 1
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	link = elevon3_4292690220
-	srfN = srfAttach,MK1Fuselage_4294561332
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleLiftingSurface
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = elevon3_4292690220
-	partName = Part
-	pos = -0.0136446105,4.60215569,-6.23171425
-	attPos = 0,0,0
-	attPos0 = -0.968095601,-0.625000775,1.89365693E-07
-	rot = 0.499999493,0.500000477,0.500000119,0.500000179
-	attRot = 0,0,-0.707106709,0.707106709
-	attRot0 = 1.63912802E-07,-1,-1.49011603E-08,4.02331295E-07
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = 1
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	srfN = srfAttach,delta.small_4292691204
+	sym = R8winglet_4294815680
+	srfN = srfAttach,deltaWing_4294605372
 	EVENTS
 	{
 	}
@@ -3555,28 +1577,29 @@ PART
 }
 PART
 {
-	part = toroidalAerospike_4294685750
+	part = elevon3_4294605286
 	partName = Part
-	pos = -0.01364478,3.00983596,-5.62726974
+	pos = -1.27100587,10.1411896,-0.989746571
 	attPos = 0,0,0
-	attPos0 = 0,-0.937501907,1.11758901E-07
-	rot = 0.707106829,0,0,0.707106829
-	attRot = 0,0,0,1
+	attPos0 = 0,0,0
+	rot = -0.706439018,0.0307263602,0.0307264794,-0.70643878
+	attRot = -0.690345526,0.153045893,-0.153045893,0.690345526
 	attRot0 = 0,0,0,1
 	mir = 1,1,1
-	symMethod = Radial
+	symMethod = Mirror
 	autostrutMode = Off
 	istg = 0
 	resPri = 0
 	dstg = 0
-	sidx = 0
-	sqor = 0
-	sepI = 1
-	attm = 0
+	sidx = -1
+	sqor = -1
+	sepI = 0
+	attm = 1
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	attN = top,MK1Fuselage_4294561332
+	sym = elevon3_4294815638
+	srfN = srfAttach,deltaWing_4294605372
 	EVENTS
 	{
 	}
@@ -3588,7 +1611,423 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleEngines
+		name = ModuleControlSurface
+		isEnabled = True
+		mirrorDeploy = False
+		usesMirrorDeploy = True
+		ignorePitch = False
+		ignoreYaw = True
+		ignoreRoll = True
+		deploy = False
+		deployInvert = False
+		partDeployInvert = False
+		authorityLimiter = 100
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ActionToggle
+			{
+				actionGroup = None
+			}
+			ActionExtend
+			{
+				actionGroup = None
+			}
+			ActionRetract
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = elevon2_4294605250
+	partName = Part
+	pos = -3.08544683,10.2971201,-0.989746571
+	attPos = 0,0,0
+	attPos0 = 0,0,0
+	rot = -0.706439018,0.0307263993,0.030726511,-0.70643878
+	attRot = -0.690345585,0.153045893,-0.153045893,0.690345585
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Mirror
+	autostrutMode = Off
+	istg = 0
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = 0
+	attm = 1
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = elevon2_4294815604
+	srfN = srfAttach,deltaWing_4294605372
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleControlSurface
+		isEnabled = True
+		mirrorDeploy = False
+		usesMirrorDeploy = True
+		ignorePitch = True
+		ignoreYaw = True
+		ignoreRoll = False
+		deploy = False
+		deployInvert = False
+		partDeployInvert = False
+		authorityLimiter = 100
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ActionToggle
+			{
+				actionGroup = None
+			}
+			ActionExtend
+			{
+				actionGroup = None
+			}
+			ActionRetract
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = SmallGearBay_4292534180
+	partName = Part
+	pos = -1.51758599,10.00144,1.01315951
+	attPos = 0.00298201991,1.43051102E-06,0.0340962596
+	attPos0 = -1.19102395,0.9056108,0.0937520191
+	rot = 0,-8.93390029E-10,-1.22774981E-08,1
+	attRot = 1.43407703E-07,0.707108021,0.707105577,1.39600601E-07
+	attRot0 = 0.707105696,1.82539196E-07,1.873927E-07,-0.707108021
+	mir = 1,1,1
+	symMethod = Mirror
+	autostrutMode = ForceHeaviest
+	istg = 0
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = 0
+	attm = 1
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = SmallGearBay_4294815570
+	srfN = srfAttach,deltaWing_4294605372
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleWheelBase
+		isEnabled = True
+		wheelType = FREE
+		isGrounded = False
+		autoFriction = True
+		frictionMultiplier = 1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ActAutoFrictionToggle
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelSuspension
+		isEnabled = True
+		springTweakable = 1
+		damperTweakable = 1
+		suspensionPos = (-1, -1, -1)
+		autoBoost = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelSteering
+		isEnabled = True
+		steeringEnabled = False
+		steeringInvert = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelBrakes
+		isEnabled = True
+		brakeTweakable = 100
+		brakeInput = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			BrakeAction
+			{
+				actionGroup = Brakes
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleStatusLight
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelDeployment
+		isEnabled = True
+		shieldedCanDeploy = False
+		stateString = 
+		stagingEnabled = True
+		position = 1
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ActionToggle
+			{
+				actionGroup = Gear
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FXModuleConstrainPosition
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FXModuleLookAtConstraint
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleTestSubject
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleLight
+		isEnabled = True
+		isOn = False
+		uiWriteLock = False
+		lightR = 1
+		lightG = 1
+		lightB = 1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleLightAction
+			{
+				actionGroup = Light
+			}
+			LightOnAction
+			{
+				actionGroup = None
+			}
+			LightOffAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelDamage
+		isEnabled = True
+		isDamaged = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleDragModifier
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleDragModifier
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = JetEngine_4294618874
+	partName = Part
+	pos = 0.206589505,10.3309603,-1.74544287
+	attPos = 0,0,0
+	attPos0 = 0,-1.91037595,2.27734503E-07
+	rot = 0.707106829,0,0,0.707106829
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	istg = 0
+	resPri = 0
+	dstg = 0
+	sidx = 0
+	sqor = 0
+	sepI = 0
+	attm = 0
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	attN = top,MK1IntakeFuselage_4294606826
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleEnginesFX
 		isEnabled = True
 		staged = False
 		flameout = False
@@ -3605,7 +2044,7 @@ PART
 		{
 			OnAction
 			{
-				actionGroup = Custom06
+				actionGroup = None
 			}
 			ShutdownAction
 			{
@@ -3622,15 +2061,39 @@ PART
 	}
 	MODULE
 	{
-		name = FXModuleAnimateThrottle
+		name = ModuleAnimateHeat
 		isEnabled = True
-		animState = 0
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleAnimateGeneric
+		isEnabled = True
+		aniState = LOCKED
+		animSwitch = True
+		animTime = 0
+		animSpeed = 1
+		deployPercent = 100
+		animationIsDisabled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = Custom06
+			}
 		}
 		UPGRADESAPPLIED
 		{
@@ -3646,27 +2109,6 @@ PART
 		}
 		ACTIONS
 		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleJettison
-		isEnabled = True
-		isJettisoned = True
-		shroudHideOverride = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			JettisonAction
-			{
-				actionGroup = None
-			}
 		}
 		UPGRADESAPPLIED
 		{
@@ -3702,57 +2144,15 @@ PART
 		{
 		}
 	}
-}
-PART
-{
-	part = SurfAntenna_4293951262
-	partName = Part
-	pos = -0.013644767,3.67896724,-0.628036261
-	attPos = 0,0,0
-	attPos0 = 1.3038516E-08,1.23670256,-0.66912967
-	rot = -2.38418579E-07,0.707106829,-2.38418579E-07,-0.707106829
-	attRot = 0,0.707106769,0,0.707106769
-	attRot0 = 0.499999791,0.499999791,-0.500000179,-0.500000179
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = 1
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	srfN = srfAttach,fuelTank.long_4294811080
-	EVENTS
+	RESOURCE
 	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDataTransmitter
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			StartTransmissionAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
+		name = ElectricCharge
+		amount = 0
+		maxAmount = 0.080000000000000002
+		flowState = True
+		isTweakable = False
+		hideFlow = True
+		isVisible = False
+		flowMode = Both
 	}
 }
