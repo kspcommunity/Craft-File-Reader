@@ -1,48 +1,74 @@
 const axios = require('axios');
 const fs = require('fs');
 
+// Dynamic import to resolve ES Module compatibility issue
+let chalk;
+const chalkPromise = import('chalk').then(module => {
+    chalk = module.default;
+});
+
 // Function to fetch the JSON data from the provided URL
 async function fetchModPartsData(url) {
     try {
         const response = await axios.get(url);
         return response.data;
     } catch (error) {
-        console.error('Error fetching mod parts data:', error);
+        console.error(chalk.red('Error fetching mod parts data:'), error);
         return null;
     }
 }
 
-// Function to read the example.craft file and extract parts
+// Function to read the craft file and extract craft details and parts
 function readCraftFile(filename) {
     try {
         const data = fs.readFileSync(filename, 'utf8');
-        const parts = extractParts(data);
-        return parts;
+        const craftData = {
+            ship: '',
+            description: '',
+            version: '',
+            type: '',
+            size: '',
+            vesselType: '',
+            totalPartCount: 0,
+            parts: []
+        };
+        
+        const lines = data.split('\n');
+        let isPartSection = false;
+        let typeFound = false; // Flag to track if type has been found
+        for (let line of lines) {
+            line = line.trim();
+            if (line.startsWith("ship")) {
+                craftData.ship = line.split('=')[1].trim();
+            } else if (line.startsWith("description")) {
+                craftData.description = line.split('=')[1].trim();
+            } else if (line.startsWith("version")) {
+                craftData.version = line.split('=')[1].trim();
+            } else if (line.startsWith("size")) {
+                craftData.size = line.split('=')[1].trim();
+            } else if (line.startsWith("vesselType")) {
+                craftData.vesselType = line.split('=')[1].trim();
+            } else if (line.startsWith("type") && !typeFound) { // Check if type has been found
+                craftData.type = line.split('=')[1].trim();
+                typeFound = true; // Set flag to true after first occurrence is found
+            } else if (line.startsWith("PART")) {
+                isPartSection = true;
+                continue;
+            } else if (isPartSection && line.startsWith("}")) {
+                isPartSection = false;
+            }
+            // Counting parts
+            if (isPartSection && line.startsWith("part =")) {
+                craftData.totalPartCount++;
+                const partName = line.split('=')[1].trim().split('_')[0];
+                craftData.parts.push(partName);
+            }
+        }
+        return craftData;
     } catch (err) {
-        console.error('Error reading the file:', err);
-        return [];
+        console.error(chalk.red('Error reading the file:'), err);
+        return null;
     }
-}
-
-// Function to extract parts from the craft file
-function extractParts(data) {
-    const parts = [];
-    const lines = data.split('\n');
-    let isPartSection = false;
-    for (let line of lines) {
-        line = line.trim();
-        if (line.startsWith("PART")) {
-            isPartSection = true;
-            continue;
-        }
-        if (isPartSection && line.startsWith("part =")) {
-            const partName = line.split('=')[1].trim().split('_')[0];
-            parts.push(partName);
-        } else if (isPartSection && line.startsWith("}")) {
-            isPartSection = false;
-        }
-    }
-    return parts;
 }
 
 // Function to check if a part exists in the mod parts data and retrieve its details
@@ -71,31 +97,45 @@ async function main() {
     // Fetch mod parts data
     const modPartsData = await fetchModPartsData(modPartsUrl);
     if (!modPartsData) {
-        console.log('Failed to fetch mod parts data. Exiting...');
+        console.error(chalk.red('Failed to fetch mod parts data. Exiting...'));
         return;
     }
 
-    // Read craft file and extract parts
-    const parts = readCraftFile(craftFilename);
-    if (parts.length === 0) {
-        console.log('No parts found in the craft file.');
+    // Wait for chalk to be loaded
+    await chalkPromise;
+
+    // Read craft file and extract craft details and parts
+    const craftData = readCraftFile(craftFilename);
+    if (!craftData || craftData.parts.length === 0) {
+        console.error(chalk.red('No parts found in the craft file.'));
         return;
     }
 
-    // Check each part against mod parts data and print details if found
-    console.log('Parts in the craft file:');
-    for (const part of parts) {
+    // Print craft details
+    console.log(chalk.yellow('Craft Details:'));
+    console.log(chalk.yellow(`- Ship: ${craftData.ship}`));
+    console.log(chalk.yellow(`- Description: ${craftData.description}`));
+    console.log(chalk.yellow(`- Version: ${craftData.version}`));
+    console.log(chalk.yellow(`- Type: ${craftData.type}`));
+    console.log(chalk.yellow(`- Size: ${craftData.size}`));
+    console.log(chalk.yellow(`- Vessel Type: ${craftData.vesselType}`));
+    console.log(chalk.yellow(`- Total Part Count: ${craftData.totalPartCount}`));
+
+    // Print parts details
+    console.log(chalk.blue('Parts in the craft file:'));
+    for (const part of craftData.parts) {
         const partDetails = findPartDetails(part, modPartsData);
         if (partDetails) {
-            console.log(`- Part: ${partDetails.partName}`);
-            console.log(`  Mod: ${partDetails.modName}`);
-            console.log(`  Preferred Name: ${partDetails.preferredName}`);
-            console.log(`  Link: ${partDetails.link}`);
-            console.log(`  File Path: ${partDetails.filePath}`);
+            console.log(chalk.green.bold(`- Part: ${partDetails.partName}`));
+            console.log(chalk.green(`  Mod: ${partDetails.modName}`));
+            console.log(chalk.green.dim(`  Mod Preferred Name: ${partDetails.preferredName}`));
+            console.log(chalk.green.italic(`  Link: ${partDetails.link}`));
+            console.log(chalk.green(`  File Path: ${partDetails.filePath}`));
         } else {
-            console.log(`- Part: ${part} (Not found in mod parts data)`);
+            console.log(chalk.red(`- Part: ${part} (Not found in mod parts data)`));
         }
     }
+
 }
 
 // Run the program
