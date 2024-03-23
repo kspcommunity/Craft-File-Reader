@@ -1,9 +1,0 @@
-strutOcto x13
-Null x512
-x x138
-structuralMiniNode x20
-wheelMed x18
-miniFuselage x60
-batteryBankMini x242
-IntakeRadialLong x12
-miniJetEngine x16
