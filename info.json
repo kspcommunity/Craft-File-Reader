@@ -8,142 +8,159 @@
   },
   "Parts": {
     "Cockpit": {
-      "Path": "Part 'Cockpit' not found in any mod.",
-      "UsageCount": 0,
+      "Path": "N/A",
+      "UsageCount": 1,
       "ModDetails": [
         "UnknownMod"
       ]
     },
     "noseConeAdapter": {
-      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Aero\\cones\\noseConeAdapter.cfg",
+      "Path": "N/A",
       "UsageCount": 1,
       "ModDetails": [
+        "Kerbin_Electric list mod",
         "Squad"
       ]
     },
     "airplaneTail": {
-      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Aero\\cones\\tailConnectorA.cfg",
+      "Path": "N/A",
       "UsageCount": 1,
       "ModDetails": [
+        "Kerbin_Electric list mod",
         "Squad"
       ]
     },
     "GearSmall": {
-      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Wheel\\LandingGear\\GearMedium.cfg",
+      "Path": "N/A",
       "UsageCount": 1,
       "ModDetails": [
         "Squad"
       ]
     },
     "avionicsNoseCone": {
-      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Aero\\cones\\avionicsNoseCone.cfg",
+      "Path": "N/A",
       "UsageCount": 1,
       "ModDetails": [
+        "Kerbin_Electric list mod",
+        "Renamer Mod",
         "Squad"
       ]
     },
     "miniFuselage": {
-      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\FuelTank\\miniFuselage\\miniFuselage.cfg",
+      "Path": "N/A",
       "UsageCount": 1,
       "ModDetails": [
         "Squad"
       ]
     },
     "bdPilotAI": {
-      "Path": "Part 'bdPilotAI' not found in any mod.",
-      "UsageCount": 0,
+      "Path": "N/A",
+      "UsageCount": 1,
       "ModDetails": [
-        "UnknownMod"
+        "BDArmory",
+        "D5-Mantis",
+        "GameData"
       ]
     },
     "SurfAntenna": {
-      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Utility\\DirectAntennas\\C16S.cfg",
+      "Path": "N/A",
       "UsageCount": 1,
       "ModDetails": [
+        "GameData",
         "Squad"
       ]
     },
     "missileController": {
-      "Path": "Part 'missileController' not found in any mod.",
-      "UsageCount": 0,
+      "Path": "N/A",
+      "UsageCount": 1,
       "ModDetails": [
-        "UnknownMod"
+        "BDArmory",
+        "D5-Mantis",
+        "GameData"
       ]
     },
     "Null": {
-      "Path": "Part 'Null' not found in any mod.",
-      "UsageCount": 0,
+      "Path": "N/A",
+      "UsageCount": 1,
       "ModDetails": [
         "UnknownMod"
       ]
     },
     "flagPartFlat": {
-      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Utility\\flags\\flagFlat\\flagFlat.cfg",
+      "Path": "N/A",
       "UsageCount": 1,
       "ModDetails": [
         "Squad"
       ]
     },
     "wingStrake": {
-      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Aero\\wings\\strake.cfg",
+      "Path": "N/A",
       "UsageCount": 1,
       "ModDetails": [
+        "GameData",
+        "SpaceplanePlus v1.3 Fix version",
         "Squad"
       ]
     },
     "StandardCtrlSrf": {
-      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Aero\\wings\\elevon1.cfg",
+      "Path": "N/A",
       "UsageCount": 1,
       "ModDetails": [
+        "GameData",
         "Squad"
       ]
     },
     "longAntenna": {
-      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Contracts\\constructionContractParts.cfg",
+      "Path": "N/A",
       "UsageCount": 1,
       "ModDetails": [
+        "KerbalSpaceJunk",
         "Squad"
       ]
     },
     "radialEngineBody": {
-      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Structural\\mk1Parts\\engineBodyRadial.cfg",
+      "Path": "N/A",
       "UsageCount": 1,
       "ModDetails": [
         "Squad"
       ]
     },
     "tailfin": {
-      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Aero\\airplaneFins\\tailfin.cfg",
+      "Path": "N/A",
       "UsageCount": 1,
       "ModDetails": [
         "Squad"
       ]
     },
     "standardNoseCone": {
-      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Aero\\cones\\smallNoseCone.cfg",
+      "Path": "N/A",
       "UsageCount": 1,
       "ModDetails": [
+        "Kerbin_Electric list mod",
         "Squad"
       ]
     },
     "turboJet": {
-      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Engine\\jetEngines\\jetEngineAfterburning.cfg",
+      "Path": "N/A",
       "UsageCount": 1,
       "ModDetails": [
         "Squad"
       ]
     },
     "advSasModule": {
-      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Command\\inlineAdvancedStabilizer\\inlineAdvancedStabilizer.cfg",
+      "Path": "N/A",
       "UsageCount": 1,
       "ModDetails": [
+        "KerbalSpaceJunk",
+        "Renamer Mod",
         "Squad"
       ]
     },
     "ramAirIntake": {
-      "Path": "D:\\kspcommunity\\Craft-File-Reader\\GameData\\Squad\\Parts\\Aero\\ramAirIntake\\ramAirIntake.cfg",
+      "Path": "N/A",
       "UsageCount": 1,
       "ModDetails": [
+        "GameData",
         "Squad"
       ]
     }
