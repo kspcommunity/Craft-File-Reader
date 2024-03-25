@@ -1,7 +1,7 @@
-const processCraftFile = require('./index');
+const processCraftFile = require("@kspcommunity/craft-file-reader");
 
 // Path to the Craft file
-const craftFilePath = 'crafts/Saab JAS 39 Gripen.craft';
+const craftFilePath = 'example.craft';
 
 // Call the processCraftFile function to process the Craft file
 processCraftFile(craftFilePath)
