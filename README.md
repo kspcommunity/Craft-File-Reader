@@ -21,19 +21,7 @@ npm install @kspcommunity/craft-file-reader
 
 ## Usage
 
-```javascript
-const craftRead = require('@kspcommunity/craft-file-reader');
-
-// Read a Craft file
-const craftFilename = 'path/to/craft-file.craft';
-const craftData = craftRead(craftFilename);
-
-if (craftData) {
-    console.log('Craft Details:', craftData);
-} else {
-    console.log('Failed to read Craft file.');
-}
-```
+You can check out the test.js file included
 
 ## Interact with Mod Parts Data
 
