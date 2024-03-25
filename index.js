@@ -1,18 +1,12 @@
 const axios = require('axios');
-const fs = require('fs');
-const readline = require('readline').createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
 
 /**
- * Function to read a Craft file and extract its details and parts.
- * @param {string} filename - The path to the Craft file.
+ * Function to read Craft file content and extract its details and parts.
+ * @param {string} fileContent - The content of the Craft file.
  * @returns {object|null} - An object containing craft details and parts, or null if an error occurs.
  */
-function craftRead(filename) {
+function craftRead(fileContent) {
     try {
-        const data = fs.readFileSync(filename, 'utf8');
         const craftData = {
             ship: '',
             description: '',
@@ -24,7 +18,7 @@ function craftRead(filename) {
             parts: []
         };
 
-        const lines = data.split('\n');
+        const lines = fileContent.split('\n');
         let isPartSection = false;
         let typeFound = false; // Flag to track if type has been found
         for (let line of lines) {
@@ -91,35 +85,8 @@ function findPartDetails(partName, modPartsData) {
     return null;
 }
 
-// Main function to run the program
-async function main() {
-    const modPartsUrl = 'https://mod-parts.kspcommunity.com/data.json';
-
-    // Fetch mod parts data
-    const modPartsData = await fetchModPartsData(modPartsUrl);
-    if (!modPartsData) {
-        console.error('Failed to fetch mod parts data. Exiting...');
-        return;
-    }
-
-    // Ask the user to input the file path
-    readline.question('Enter the path to the Craft file: ', async (craftFilename) => {
-        // Read craft file and extract craft details and parts
-        const craftData = craftRead(craftFilename);
-        if (!craftData || craftData.parts.length === 0) {
-            console.error('No parts found in the craft file.');
-            readline.close();
-            return;
-        }
-
-        // Return craft details and parts
-        readline.close();
-        console.log(JSON.stringify(craftData));
-    });
-}
-
-// Run the program
-main();
-
-// Export the craftRead function to make it accessible to other modules
-module.exports = craftRead;
+module.exports = {
+    craftRead,
+    fetchModPartsData,
+    findPartDetails
+};
