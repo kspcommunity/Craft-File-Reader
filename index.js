@@ -112,33 +112,10 @@ async function main() {
             return;
         }
 
-        // Print craft details
-        console.log('\nCraft Details:');
-        console.log(`- Ship: ${craftData.ship}`);
-        console.log(`- Description: ${craftData.description}`);
-        console.log(`- Version: ${craftData.version}`);
-        console.log(`- Type: ${craftData.type}`);
-        console.log(`- Size: ${craftData.size}`);
-        console.log(`- Vessel Type: ${craftData.vesselType}`);
-        console.log(`- Total Part Count: ${craftData.totalPartCount}`);
-
-        // Print parts details
-        console.log('\nParts in the craft file:');
-        for (const part of craftData.parts) {
-            const partDetails = findPartDetails(part, modPartsData);
-            if (partDetails) {
-                console.log(`\n   Part: ${partDetails.partName}`);
-                console.log(`     Mod: ${partDetails.modName}`);
-                console.log(`     Mod Preferred Name: ${partDetails.preferredName}`);
-                console.log(`     Link: ${partDetails.link}`);
-                console.log(`     File Path: ${partDetails.filePath}`);
-            } else {
-                console.log(`\n   Part: ${part} (Not found in mod parts data)`);
-            }
-        }
+        // Return craft details and parts
         readline.close();
+        console.log(JSON.stringify(craftData));
     });
-
 }
 
 // Run the program

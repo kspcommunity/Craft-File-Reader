@@ -35,9 +35,9 @@ if (craftData) {
 }
 ```
 
-## Interact with Mod Parts Lister
+## Interact with Mod Parts Data
 
-Craft File Reader works seamlessly with the data provided by [Mod Parts Lister](https://github.com/kspcommunity/Mod-Parts-Lister). Utilize both tools together for enhanced functionality.
+Craft File Reader can be used to interact with the data provided by [Mod Parts Lister](https://github.com/kspcommunity/Mod-Parts-Lister). Use both tools together for enhanced functionality.
 
 ## Acknowledgements
 
