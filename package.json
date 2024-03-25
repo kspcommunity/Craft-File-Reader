@@ -10,12 +10,25 @@
     "express": "^4.18.3"
   },
   "name": "craft-file-reader",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "author": "g9militantsYT",
+  "license": "MIT",
+  "description": "[![GitHub stars](https://img.shields.io/github/stars/kspcommunity/Craft-File-Reader?style=social)](https://github.com/kspcommunity/Craft-File-Reader/stargazers)\r [![GitHub forks](https://img.shields.io/github/forks/kspcommunity/Craft-File-Reader?style=social)](https://github.com/kspcommunity/Craft-File-Reader/network)\r [![GitHub watchers](https://img.shields.io/github/watchers/kspcommunity/Craft-File-Reader?style=social)](https://github.com/kspcommunity/Craft-File-Reader)\r [![GitHub contributors](https://img.shields.io/github/contributors/kspcommunity/Craft-File-Reader)](https://github.com/kspcommunity/Craft-File-Reader/graphs/contributors)",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kspcommunity/Craft-File-Reader.git"
+  },
+  "keywords": [
+    "ksp",
+    "craft-file-reader"
+  ],
+  "bugs": {
+    "url": "https://github.com/kspcommunity/Craft-File-Reader/issues"
+  },
+  "homepage": "https://github.com/kspcommunity/Craft-File-Reader#readme"
 }
