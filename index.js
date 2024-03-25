@@ -1,12 +1,14 @@
 const axios = require('axios');
+const fs = require('fs');
 
 /**
- * Function to read Craft file content and extract its details and parts.
- * @param {string} fileContent - The content of the Craft file.
+ * Function to read a Craft file and extract its details and parts.
+ * @param {string} filename - The path to the Craft file.
  * @returns {object|null} - An object containing craft details and parts, or null if an error occurs.
  */
-function craftRead(fileContent) {
+function craftRead(filename) {
     try {
+        const data = fs.readFileSync(filename, 'utf8');
         const craftData = {
             ship: '',
             description: '',
@@ -18,7 +20,7 @@ function craftRead(fileContent) {
             parts: []
         };
 
-        const lines = fileContent.split('\n');
+        const lines = data.split('\n');
         let isPartSection = false;
         let typeFound = false; // Flag to track if type has been found
         for (let line of lines) {
@@ -85,8 +87,39 @@ function findPartDetails(partName, modPartsData) {
     return null;
 }
 
-module.exports = {
-    craftRead,
-    fetchModPartsData,
-    findPartDetails
-};
+// Main function to process the craft file
+async function processCraftFile(craftFilePath) {
+    const modPartsUrl = 'https://mod-parts.kspcommunity.com/data.json';
+
+    // Fetch mod parts data
+    const modPartsData = await fetchModPartsData(modPartsUrl);
+    if (!modPartsData) {
+        console.error('Failed to fetch mod parts data. Exiting...');
+        return null;
+    }
+
+    // Read craft file and extract craft details and parts
+    const craftData = craftRead(craftFilePath);
+    if (!craftData || craftData.parts.length === 0) {
+        console.error('No parts found in the craft file.');
+        return null;
+    }
+
+    // Check parts against mod parts data
+    const processedCraftData = {
+        craftDetails: craftData,
+        partsDetails: []
+    };
+    for (const part of craftData.parts) {
+        const partDetails = findPartDetails(part, modPartsData);
+        if (partDetails) {
+            processedCraftData.partsDetails.push(partDetails);
+        } else {
+            processedCraftData.partsDetails.push({ partName: part, notFoundInModData: true });
+        }
+    }
+    return processedCraftData;
+}
+
+// Export the processCraftFile function to make it accessible to other modules
+module.exports = processCraftFile;

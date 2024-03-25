@@ -21,7 +21,7 @@ npm install @kspcommunity/craft-file-reader
 
 ## Usage
 
-You can check out the test.js file included
+See the test.js
 
 ## Interact with Mod Parts Data
 
