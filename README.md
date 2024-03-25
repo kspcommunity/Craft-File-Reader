@@ -11,9 +11,29 @@ Welcome to Craft File Reader! This repository is part of the KSP Community organ
 
 Craft File Reader is a tool for reading craft files used in the game Kerbal Space Program (KSP). It allows you to interact with craft files and extract useful information from them.
 
+## Installation
+
+You can install Craft File Reader via npm:
+
+```bash
+npm install @kspcommunity/craft-file-reader
+```
+
 ## Usage
 
-You can use Craft File Reader to parse craft files and access information such as vessel name, parts used, and other relevant details.
+```javascript
+const craftRead = require('@kspcommunity/craft-file-reader');
+
+// Read a Craft file
+const craftFilename = 'path/to/craft-file.craft';
+const craftData = craftRead(craftFilename);
+
+if (craftData) {
+    console.log('Craft Details:', craftData);
+} else {
+    console.log('Failed to read Craft file.');
+}
+```
 
 ## Interact with Mod Parts Lister
 

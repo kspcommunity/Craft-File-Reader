@@ -9,19 +9,12 @@ const chalkPromise = import('chalk').then(module => {
     chalk = module.default;
 });
 
-// Function to fetch the JSON data from the provided URL
-async function fetchModPartsData(url) {
-    try {
-        const response = await axios.get(url);
-        return response.data;
-    } catch (error) {
-        console.error(chalk.red('Error fetching mod parts data:'), error);
-        return null;
-    }
-}
-
-// Function to read the craft file and extract craft details and parts
-function readCraftFile(filename) {
+/**
+ * Function to read a Craft file and extract its details and parts.
+ * @param {string} filename - The path to the Craft file.
+ * @returns {object|null} - An object containing craft details and parts, or null if an error occurs.
+ */
+function craftRead(filename) {
     try {
         const data = fs.readFileSync(filename, 'utf8');
         const craftData = {
@@ -73,6 +66,17 @@ function readCraftFile(filename) {
     }
 }
 
+// Function to fetch the JSON data from the provided URL
+async function fetchModPartsData(url) {
+    try {
+        const response = await axios.get(url);
+        return response.data;
+    } catch (error) {
+        console.error(chalk.red('Error fetching mod parts data:'), error);
+        return null;
+    }
+}
+
 // Function to check if a part exists in the mod parts data and retrieve its details
 function findPartDetails(partName, modPartsData) {
     for (const mod of modPartsData) {
@@ -105,7 +109,7 @@ async function main() {
     // Ask the user to input the file path
     readline.question(chalk.yellow('Enter the path to the Craft file: '), async (craftFilename) => {
         // Read craft file and extract craft details and parts
-        const craftData = readCraftFile(craftFilename);
+        const craftData = craftRead(craftFilename);
         if (!craftData || craftData.parts.length === 0) {
             console.error(chalk.red('No parts found in the craft file.'));
             readline.close();
@@ -143,3 +147,6 @@ async function main() {
 
 // Run the program
 main();
+
+// Export the craftRead function to make it accessible to other modules
+module.exports = craftRead;

@@ -1,7 +1,9 @@
 const axios = require('axios');
 const fs = require('fs');
-
-// Dynamic import to resolve ES Module compatibility issue
+const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 let chalk;
 const chalkPromise = import('chalk').then(module => {
     chalk = module.default;
@@ -91,7 +93,6 @@ function findPartDetails(partName, modPartsData) {
 
 // Main function to run the program
 async function main() {
-    const craftFilename = 'example.craft';
     const modPartsUrl = 'https://mod-parts.kspcommunity.com/data.json';
 
     // Fetch mod parts data
@@ -101,40 +102,42 @@ async function main() {
         return;
     }
 
-    // Wait for chalk to be loaded
-    await chalkPromise;
-
-    // Read craft file and extract craft details and parts
-    const craftData = readCraftFile(craftFilename);
-    if (!craftData || craftData.parts.length === 0) {
-        console.error(chalk.red('No parts found in the craft file.'));
-        return;
-    }
-
-    // Print craft details
-    console.log(chalk.yellow('Craft Details:'));
-    console.log(chalk.yellow(`- Ship: ${craftData.ship}`));
-    console.log(chalk.yellow(`- Description: ${craftData.description}`));
-    console.log(chalk.yellow(`- Version: ${craftData.version}`));
-    console.log(chalk.yellow(`- Type: ${craftData.type}`));
-    console.log(chalk.yellow(`- Size: ${craftData.size}`));
-    console.log(chalk.yellow(`- Vessel Type: ${craftData.vesselType}`));
-    console.log(chalk.yellow(`- Total Part Count: ${craftData.totalPartCount}`));
-
-    // Print parts details
-    console.log(chalk.blue('Parts in the craft file:'));
-    for (const part of craftData.parts) {
-        const partDetails = findPartDetails(part, modPartsData);
-        if (partDetails) {
-            console.log(chalk.green.bold(`- Part: ${partDetails.partName}`));
-            console.log(chalk.green(`  Mod: ${partDetails.modName}`));
-            console.log(chalk.green.dim(`  Mod Preferred Name: ${partDetails.preferredName}`));
-            console.log(chalk.green.italic(`  Link: ${partDetails.link}`));
-            console.log(chalk.green(`  File Path: ${partDetails.filePath}`));
-        } else {
-            console.log(chalk.red(`- Part: ${part} (Not found in mod parts data)`));
+    // Ask the user to input the file path
+    readline.question(chalk.yellow('Enter the path to the Craft file: '), async (craftFilename) => {
+        // Read craft file and extract craft details and parts
+        const craftData = readCraftFile(craftFilename);
+        if (!craftData || craftData.parts.length === 0) {
+            console.error(chalk.red('No parts found in the craft file.'));
+            readline.close();
+            return;
         }
-    }
+
+        // Print craft details
+        console.log(chalk.yellow('Craft Details:'));
+        console.log(chalk.yellow(`- Ship: ${craftData.ship}`));
+        console.log(chalk.yellow(`- Description: ${craftData.description}`));
+        console.log(chalk.yellow(`- Version: ${craftData.version}`));
+        console.log(chalk.yellow(`- Type: ${craftData.type}`));
+        console.log(chalk.yellow(`- Size: ${craftData.size}`));
+        console.log(chalk.yellow(`- Vessel Type: ${craftData.vesselType}`));
+        console.log(chalk.yellow(`- Total Part Count: ${craftData.totalPartCount}`));
+
+        // Print parts details
+        console.log(chalk.blue('Parts in the craft file:'));
+        for (const part of craftData.parts) {
+            const partDetails = findPartDetails(part, modPartsData);
+            if (partDetails) {
+                console.log(chalk.green.bold(`- Part: ${partDetails.partName}`));
+                console.log(chalk.green(`  Mod: ${partDetails.modName}`));
+                console.log(chalk.green.dim(`  Mod Preferred Name: ${partDetails.preferredName}`));
+                console.log(chalk.green.italic(`  Link: ${partDetails.link}`));
+                console.log(chalk.green(`  File Path: ${partDetails.filePath}`));
+            } else {
+                console.log(chalk.red(`- Part: ${part} (Not found in mod parts data)`));
+            }
+        }
+        readline.close();
+    });
 
 }
 
