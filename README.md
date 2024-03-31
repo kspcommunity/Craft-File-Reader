@@ -21,47 +21,35 @@ npm install @kspcommunity/craft-file-reader
 
 ## Usage
 
-```javascript
-const processCraftFile = require("@kspcommunity/craft-file-reader");
+The `processCraftFile` function provided by Craft File Reader allows you to analyze Craft files. Here's how you can use it:
 
-// Path to the Craft file
-const craftFilePath = 'example.craft';
+1. Import the function into your Node.js script:
 
-// Call the processCraftFile function to process the Craft file
-processCraftFile(craftFilePath)
-    .then(processedCraftData => {
-        if (processedCraftData) {
-            // Print craft details
-            console.log('\nCraft Details:');
-            console.log(`- Ship: ${processedCraftData.craftDetails.ship}`);
-            console.log(`- Description: ${processedCraftData.craftDetails.description}`);
-            console.log(`- Version: ${processedCraftData.craftDetails.version}`);
-            console.log(`- Type: ${processedCraftData.craftDetails.type}`);
-            console.log(`- Size: ${processedCraftData.craftDetails.size}`);
-            console.log(`- Vessel Type: ${processedCraftData.craftDetails.vesselType}`);
-            console.log(`- Total Part Count: ${processedCraftData.craftDetails.totalPartCount}`);
+    ```javascript
+    const processCraftFile = require('@kspcommunity/craft-file-reader');
+    ```
 
-            // Print parts details
-            console.log('\nParts in the craft file:');
-            for (const partDetails of processedCraftData.partsDetails) {
-                if (partDetails.notFoundInModData) {
-                    console.log(`\nPart: ${partDetails.partName} (Not found in mod parts data)`);
-                } else {
-                    console.log(`\n   Part: ${partDetails.partName}`);
-                    console.log(`     Mod: ${partDetails.modName}`);
-                    console.log(`     Mod Preferred Name: ${partDetails.preferredName}`);
-                    console.log(`     Link: ${partDetails.link}`);
-                    console.log(`     File Path: ${partDetails.filePath}`);
-                }
-            }
-        } else {
-            console.log('Failed to process the Craft file.');
-        }
-    })
-    .catch(error => {
-        console.error('Error processing the Craft file:', error);
-    });
-```
+2. Call the function with the path to the Craft file as an argument:
+
+    ```javascript
+    const craftFilePath = '/path/to/your/craft_file.craft';
+    const result = await processCraftFile(craftFilePath);
+    ```
+
+    The `processCraftFile` function returns a Promise, so it's recommended to use `await` or `.then()` to handle the result.
+
+3. Handle the result:
+
+    If successful, the function returns an object containing details about the craft and its parts. If any error occurs during the process, it returns `null`.
+
+    ```javascript
+    if (result) {
+        console.log('Craft Details:', result.craftDetails);
+        console.log('Parts Details:', result.partsDetails);
+    } else {
+        console.error('Error processing the craft file.');
+    }
+    ```
 
 ## Interact with Mod Parts Data
 
