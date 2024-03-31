@@ -53,7 +53,7 @@ function craftRead(filename) {
         }
         return craftData;
     } catch (err) {
-        console.error('Error reading the file:', err);
+        console.error('Error reading the Craft file:', err);
         return null;
     }
 }
@@ -64,15 +64,28 @@ async function fetchModPartsData(url) {
         const response = await axios.get(url);
         return response.data;
     } catch (error) {
-        console.error('Error fetching mod parts data:', error);
+        console.error('Error fetching mod parts data from URL:', url);
+        console.error('Error details:', error.message);
         return null;
     }
 }
 
 // Function to check if a part exists in the mod parts data and retrieve its details
 function findPartDetails(partName, modPartsData) {
+    if (!modPartsData || !Array.isArray(modPartsData)) {
+        console.error('Invalid mod parts data.');
+        return null;
+    }
     for (const mod of modPartsData) {
+        if (!mod.parts || !Array.isArray(mod.parts)) {
+            console.error('Invalid parts data in mod:', mod.modName);
+            continue;
+        }
         for (const part of mod.parts) {
+            if (!part || typeof part !== 'object' || !part.name) {
+                console.error('Invalid part data in mod:', mod.modName);
+                continue;
+            }
             if (part.name === partName) {
                 return {
                     partName: part.name,
@@ -84,6 +97,7 @@ function findPartDetails(partName, modPartsData) {
             }
         }
     }
+    console.error('Part not found in mod parts data:', partName);
     return null;
 }
 
@@ -94,14 +108,14 @@ async function processCraftFile(craftFilePath) {
     // Fetch mod parts data
     const modPartsData = await fetchModPartsData(modPartsUrl);
     if (!modPartsData) {
-        console.error('Failed to fetch mod parts data. Exiting...');
+        console.error('Failed to fetch mod parts data from URL:', modPartsUrl);
         return null;
     }
 
     // Read craft file and extract craft details and parts
     const craftData = craftRead(craftFilePath);
     if (!craftData || craftData.parts.length === 0) {
-        console.error('No parts found in the craft file.');
+        console.error('No valid craft data found in the Craft file:', craftFilePath);
         return null;
     }
 
