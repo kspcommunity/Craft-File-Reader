@@ -1,4 +1,3 @@
-const axios = require('axios');
 const fs = require('fs');
 
 /**
@@ -61,8 +60,8 @@ function craftRead(filename) {
 // Function to fetch the JSON data from the provided URL
 async function fetchModPartsData(url) {
     try {
-        const response = await axios.get(url);
-        return response.data;
+        const response = await fetch(url);
+        return await response.text();
     } catch (error) {
         console.error('Error fetching mod parts data from URL:', url);
         console.error('Error details:', error.message);
