@@ -61,7 +61,10 @@ function craftRead(filename) {
 async function fetchModPartsData(url) {
     try {
         const response = await fetch(url);
-        return await response.text();
+        if (!response.ok) {
+            throw new Error('Unable to fetch mod parts data, status:', response.status, response.statusText);
+        }
+        return await response.json();
     } catch (error) {
         console.error('Error fetching mod parts data from URL:', url);
         console.error('Error details:', error.message);
